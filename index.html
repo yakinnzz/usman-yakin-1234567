@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Multiple Inheritance & Class Modifiers | Dart OOP | Cyberpunk Theme</title>
+<title>Konsep Generic Dart | Usman Yakin | SI.2A</title>
 
 <style>
 * {
@@ -67,7 +67,7 @@ body {
     97% { text-shadow: 2px 0 #ff00de, -2px 0 #00f3ff; }
 }
 
-/* FALLING CODE ANIMATION - CYBER VIBE */
+/* FALLING CODE ANIMATION */
 .falling-codes {
     position: fixed;
     top: 0;
@@ -328,18 +328,6 @@ body {
     color: #000;
 }
 
-.btn-secondary {
-    background: rgba(255, 0, 222, 0.15);
-    border: 1px solid #ff00de;
-    color: #ff00de;
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 0, 222, 0.3);
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(255, 0, 222, 0.3);
-}
-
 /* ========== GAMBAR ========== */
 .vscode-image {
     margin-top: 18px;
@@ -403,6 +391,30 @@ body {
     text-shadow: 0 0 15px #00f3ff;
 }
 
+/* ========== TABLE ========== */
+.table-compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.table-compare th, .table-compare td {
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 12px;
+    text-align: center;
+}
+
+.table-compare th {
+    background: rgba(0, 255, 255, 0.15);
+    color: #00f3ff;
+}
+
+.check { color: #00ff88; font-weight: bold; }
+.cross { color: #ff4466; font-weight: bold; }
+
 /* ========== SUMMARY BOX ========== */
 .summary-box {
     background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 222, 0.1));
@@ -454,10 +466,6 @@ body {
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #00f3ff, #ff66cc);
-}
-
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     .container {
@@ -477,33 +485,15 @@ body {
         padding: 30px 20px;
     }
 }
-
-.button {
-    background: linear-gradient(135deg, #ff00de, #00f3ff);
-    border: none;
-    padding: 12px 28px;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 15px 0;
-    color: #000;
-    font-weight: 700;
-    transition: all 0.3s ease;
-}
-
-.button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00f3ff;
-}
 </style>
 
 <script>
-// FALLING CODE ANIMATION - CYBER VERSION
+// FALLING CODE ANIMATION
 function createFallingCodes() {
     const container = document.querySelector('.falling-codes');
     if (!container) return;
     
-    const chars = ['0', '1', 'class', 'void', 'main', 'extends', 'final', 'sealed', 'abstract', 'mixins', '=>', '{}', '()', '[]', 'if', 'else', 'return', 'new', 'CYBER', 'NEON'];
+    const chars = ['0', '1', 'class', 'void', 'main', 'extends', 'T', 'E', 'K', 'V', '=>', '{}', '()', '[]', 'Generic', 'Dart'];
     
     for (let i = 0; i < 60; i++) {
         const span = document.createElement('span');
@@ -515,16 +505,6 @@ function createFallingCodes() {
         span.style.fontSize = Math.random() * 16 + 8 + 'px';
         container.appendChild(span);
     }
-}
-
-// TOGGLE IMAGE
-function toggleImage(imgId) {
-    const img = document.getElementById(imgId);
-    if (!img) {
-        console.error("Gambar tidak ditemukan:", imgId);
-        return;
-    }
-    img.style.display = img.style.display === "none" || img.style.display === "" ? "block" : "none";
 }
 
 // MODAL FUNCTIONS
@@ -550,8 +530,6 @@ document.addEventListener("DOMContentLoaded", function() {
     images.forEach(img => {
         img.addEventListener('click', () => openModal(img.id));
     });
-    
-    console.log("🔥 Cyberpunk Theme Loaded!");
 });
 
 // CLICK OUTSIDE MODAL
@@ -569,32 +547,32 @@ window.onclick = function(e) {
 
 <div class="container">
 
-<!-- HEADER -->
+<!-- HEADER - MILIK USMAN YAKIN -->
 <div class="header">
-    <h1 class="glitch-text">Multiple Inheritance</h1>
-    <h1 class="glitch-text">Class Modifiers</h1>
+    <h1 class="glitch-text">Konsep Generic</h1>
+    <h1 class="glitch-text">& OOP pada Dart</h1>
     <div class="header-divider"></div>
     <div class="identity">
-        <p>PUTRA DHAFIR NASHRULLAH</p>
-        <p>251410009</p>
-        <p>SI2A</p>
+        <p>👨‍🚀 USMAN YAKIN TRIO SINADA</p>
+        <p>📡 251410006</p>
+        <p>🎓 SI.2A</p>
     </div>
 </div>
+
+<!-- ==================== SLIDE 1 ==================== -->
 <div class="section">
-<h2>1.Tanpa Generic</h2>
-<ul>
-  <li>
-​Pada struktur ini, sebuah kontainer atau variabel didefinisikan secara umum untuk menangani berbagai macam objek sekaligus. Pendekatan ini mengandalkan fleksibilitas total di mana satu wadah bisa menerima input apa pun tanpa aturan yang ketat di awal.
-​Mekanisme: Variabel tersebut tidak dikunci pada satu tipe data spesifik, sehingga sebuah objek angka bisa dengan mudah digantikan oleh objek teks dalam alur yang sama.
-​Risiko: Karena sistem tidak memverifikasi kesesuaian tipe data saat kode ditulis, beban pemeriksaan berpindah sepenuhnya ke saat program dijalankan.
-​Dampak: Hal ini sering memicu munculnya exception atau kegagalan sistem secara mendadak jika data yang diproses tidak sesuai dengan ekspektasi logika program.
-​Singkatnya, tanpa Generic, kode menjadi sangat dinamis namun rentan terhadap kesalahan tersembunyi yang sulit dideteksi sebelum aplikasi benar-benar digunakan.
-</ul>
-<h3>Kode Program VS Code:</h3>
-<div class="code-box">
-<pre><code>
-// Nama  : Putra Dhafir Nashrullah
-// NIM   : 251410009
+    <h2>1. Tanpa Generic</h2>
+    <ul>
+        <li>Pada struktur ini, sebuah kontainer atau variabel didefinisikan secara umum untuk menangani berbagai macam objek sekaligus.</li>
+        <li>Mekanisme: Variabel tersebut tidak dikunci pada satu tipe data spesifik, sehingga sebuah objek angka bisa dengan mudah digantikan oleh objek teks dalam alur yang sama.</li>
+        <li>Risiko: Karena sistem tidak memverifikasi kesesuaian tipe data saat kode ditulis, beban pemeriksaan berpindah sepenuhnya ke saat program dijalankan.</li>
+        <li>Dampak: Hal ini sering memicu munculnya exception atau kegagalan sistem secara mendadak jika data yang diproses tidak sesuai dengan ekspektasi logika program.</li>
+        <li>Singkatnya, tanpa Generic, kode menjadi sangat dinamis namun rentan terhadap kesalahan tersembunyi yang sulit dideteksi sebelum aplikasi benar-benar digunakan.</li>
+    </ul>
+    <h3>📝 Kode Program VS Code:</h3>
+    <div class="code-box">
+        <pre><code>// Nama  : Usman Yakin Trio Sinada
+// NIM   : 251410006
 // Kelas : SI.2A
 
 // =====================
@@ -602,333 +580,374 @@ window.onclick = function(e) {
 // =====================
 class Box {
   dynamic data;
-
   Box(this.data);
 }
 
 void main() {
-  // Menyimpan data awal
   var box = Box(42);
-
-  // Menampilkan data awal
   int value = box.data;
   print("Nilai awal: $value");
-
-  // Mengubah data
+  
   box.data = "Hello";
-
-  // Menampilkan data setelah diubah
   print("Data setelah diubah: ${box.data}");
-}
-</code></pre>
- </div>
-    
+}</code></pre>
+    </div>
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="toggleImage('img1')">
-            📁 GAMBAR VS Code
+        <button class="btn btn-primary" onclick="document.getElementById('img1').style.display='block'">
+            📸 Tampilkan VS Code 1
         </button>
     </div>
-
-    <img id="img1" class="vscode-image" src="vscode1.png" alt="Tampilan VS Code" style="display:none;" 
-         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%230a1f0a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%2300f3ff%22 font-size=%2220%22 font-family=%22monospace%22%3E⚠️ vscode1.png TIDAK DITEMUKAN!%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2216%22%3EPastikan file gambar ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2214%22%3Edengan file HTML ini%3C/text%3E%3C/svg%3E';">
+    <img id="img1" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle' font-family='monospace'%3E📸 VS Code - Slide 1%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ETanpa Generic%3C/text%3E%3Ctext x='400' y='300' fill='%2366ffcc' font-size='14' text-anchor='middle'%3EUsman Yakin Trio Sinada | 251410006 | SI.2A%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img1')">
 </div>
-        <!-- ==================== SLIDE 2 ==================== -->
-        <div class="card">
-            <h3>✅ 2. Dengan Generic</h3>
-            <p>Box&lt;T&gt; → tipe ditentukan saat instansiasi, AMAN (compile-time error jika salah tipe).</p>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">Box</span>&lt;T&gt; {
-  T data;
-  Box(<span class="keyword">this</span>.data);
-}
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> intBox = Box&lt;<span class="keyword">int</span>&gt;(42);
-  <span class="keyword">var</span> stringBox = Box&lt;<span class="keyword">String</span>&gt;(<span class="string">"Hello"</span>);
-  print(intBox.data);
-}</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(2)">📸 Tampilkan VS Code 2</button>
-        </div>
 
-        <!-- ==================== SLIDE 3 ==================== -->
-        <div class="card">
-            <h3>💻 3. Sintaks Generic Class & Function</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">MyClass</span>&lt;T&gt; {
+<!-- ==================== SLIDE 2 ==================== -->
+<div class="section">
+    <h2>2. Dengan Generic</h2>
+    <ul>
+        <li>Dalam skema ini, kontainer didefinisikan menggunakan parameter tipe formal yang bertindak sebagai cetak biru yang presisi.</li>
+        <li>Mekanisme: Saat objek dibuat, kita menentukan tipe data spesifik yang akan dikunci ke dalam wadah tersebut.</li>
+        <li>Keamanan: Sistem melakukan verifikasi ketat pada saat penulisan kode (compile-time).</li>
+        <li>Dampak: Penggunaan ini menghilangkan kebutuhan untuk melakukan konversi tipe data secara manual dan drastis mengurangi risiko terjadinya runtime error.</li>
+    </ul>
+    <h3>📝 Kode Program VS Code:</h3>
+    <div class="code-box">
+        <pre><code>// Nama  : Usman Yakin Trio Sinada
+// NIM   : 251410006
+// Kelas : SI.2A
+
+// =====================
+// DENGAN GENERIC
+// =====================
+class Box&lt;T&gt; {
   T data;
-  MyClass(<span class="keyword">this</span>.data);
+  Box(this.data);
+}
+
+void main() {
+  var intBox = Box&lt;int&gt;(42);
+  var stringBox = Box&lt;String&gt;("Hello");
+  
+  print("Nilai int: ${intBox.data}");
+  print("Nilai string: ${stringBox.data}");
+  // intBox.data = "Hello"; // ❌ ERROR compile-time!
+}</code></pre>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img2').style.display='block'">
+            📸 Tampilkan VS Code 2
+        </button>
+    </div>
+    <img id="img2" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 2%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EDengan Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img2')">
+</div>
+
+<!-- ==================== SLIDE 3 ==================== -->
+<div class="section">
+    <h2>3. Sintaks Generic Class dan Function</h2>
+    <div class="code-box">
+        <pre><code>class MyClass&lt;T&gt; {
+  T data;
+  MyClass(this.data);
   T getData() => data;
 }
+
 T myFunc&lt;T&gt;(T value) => value;
-<span class="keyword">class</span> <span class="class">Pair</span>&lt;K, V&gt; {
-  K key; V value;
-  Pair(<span class="keyword">this</span>.key, <span class="keyword">this</span>.value);
-}</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(3)">📸 Tampilkan VS Code 3</button>
-        </div>
 
-        <!-- ==================== SLIDE 4 ==================== -->
-        <div class="card">
-            <h3>📦 4. Kelas Box&lt;T&gt; dengan Getter/Setter</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">Box</span>&lt;T&gt; {
+class Pair&lt;K, V&gt; {
+  K key; V value;
+  Pair(this.key, this.value);
+  void printPair() => print("Key: $key, Value: $value");
+}</code></pre>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img3').style.display='block'">
+            📸 Tampilkan VS Code 3
+        </button>
+    </div>
+    <img id="img3" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 3%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ESintaks Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img3')">
+</div>
+
+<!-- ==================== SLIDE 4 ==================== -->
+<div class="section">
+    <h2>4. Kelas Box&lt;T&gt; dengan Getter/Setter</h2>
+    <div class="code-box">
+        <pre><code>class Box&lt;T&gt; {
   T? _value;
-  Box(<span class="keyword">this</span>._value);
+  Box(this._value);
   T? get value => _value;
-  <span class="keyword">void</span> setValue(T value) => _value = value;
+  void setValue(T value) => _value = value;
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(4)">📸 Tampilkan VS Code 4</button>
-        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img4').style.display='block'">
+            📸 Tampilkan VS Code 4
+        </button>
+    </div>
+    <img id="img4" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 4%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EKelas Box%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img4')">
+</div>
 
-        <!-- ==================== SLIDE 5 ==================== -->
-        <div class="card">
-            <h3>🔑 5. Multiple Type Parameters (Pair)</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">Pair</span>&lt;K, V&gt; {
+<!-- ==================== SLIDE 5 ==================== -->
+<div class="section">
+    <h2>5. Multiple Type Parameters</h2>
+    <div class="code-box">
+        <pre><code>class Pair&lt;K, V&gt; {
   K key; V value;
-  Pair(<span class="keyword">this</span>.key, <span class="keyword">this</span>.value);
-  <span class="keyword">void</span> printPair() => print(<span class="string">"Key: $key, Value: $value"</span>);
+  Pair(this.key, this.value);
+  void printPair() => print("Key: $key, Value: $value");
 }
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> pair = Pair&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"umur"</span>, 20);
+
+void main() {
+  var pair = Pair&lt;String, int&gt;("umur", 20);
   pair.printPair();
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(5)">📸 Tampilkan VS Code 5</button>
-        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img5').style.display='block'">
+            📸 Tampilkan VS Code 5
+        </button>
+    </div>
+    <img id="img5" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 5%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EMultiple Type Parameters%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img5')">
+</div>
 
-        <!-- ==================== SLIDE 6 ==================== -->
-        <div class="card">
-            <h3>🔗 6. Fungsi Generic Combine 2 Tipe</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">String</span> combine&lt;T, U&gt;(T value1, U value2) => <span class="string">'$value1, $value2'</span>;
-<span class="keyword">void</span> <span class="class">main</span>() {
-  print(combine&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"Umur"</span>, 20));
-  print(combine&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt;(100, 99.5));
+<!-- ==================== SLIDE 6 ==================== -->
+<div class="section">
+    <h2>6. Menggabungkan Dua Tipe Data Berbeda</h2>
+    <div class="code-box">
+        <pre><code>String combine&lt;T, U&gt;(T value1, U value2) => '$value1, $value2';
+
+void main() {
+  print(combine&lt;String, int&gt;("Number is", 10));
+  print(combine&lt;int, double&gt;(10, 20.5));
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(6)">📸 Tampilkan VS Code 6</button>
-        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img6').style.display='block'">
+            📸 Tampilkan VS Code 6
+        </button>
+    </div>
+    <img id="img6" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 6%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EFungsi Combine%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img6')">
+</div>
 
-        <!-- ==================== SLIDE 7 ==================== -->
-        <div class="card">
-            <h3>🛡️ 7. Generic dengan Extends (Batas Tipe)</h3>
-            <p><code>&lt;T extends num&gt;</code> → hanya menerima int, double, num.</p>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">NumberBox</span>&lt;T extends num&gt; {
+<!-- ==================== SLIDE 7 ==================== -->
+<div class="section">
+    <h2>7. Generic Dengan Extends</h2>
+    <p><code>&lt;T extends num&gt;</code> membatasi tipe data hanya turunan dari num (int, double).</p>
+    <div class="code-box">
+        <pre><code>class NumberBox&lt;T extends num&gt; {
   T value;
-  NumberBox(<span class="keyword">this</span>.value);
+  NumberBox(this.value);
   T getValue() => value;
 }
-<span class="comment">// NumberBox<String>('test'); // ERROR!</span></code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(7)">📸 Tampilkan VS Code 7</button>
-        </div>
+// NumberBox&lt;String&gt;("test"); // ERROR!</code></pre>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img7').style.display='block'">
+            📸 Tampilkan VS Code 7
+        </button>
+    </div>
+    <img id="img7" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 7%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EExtends%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img7')">
+</div>
 
-        <!-- ==================== SLIDE 8 ==================== -->
-        <div class="card">
-            <h3>🎯 8. Type Inference (Inferensi Tipe)</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code>T myFunc&lt;T&gt;(T value) => value;
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> a = myFunc(10);     <span class="comment">// Dart inferensi sebagai int</span>
-  <span class="keyword">var</span> b = myFunc(<span class="string">"test"</span>); <span class="comment">// Dart inferensi sebagai String</span>
-  print(a.runtimeType);   <span class="comment">// int</span>
-  print(b.runtimeType);   <span class="comment">// String</span>
+<!-- ==================== SLIDE 8 ==================== -->
+<div class="section">
+    <h2>8. Type Inference (Inferensi Tipe)</h2>
+    <div class="code-box">
+        <pre><code>T myFunc&lt;T&gt;(T value) => value;
+
+void main() {
+  var a = myFunc(10);     // int
+  var b = myFunc("test"); // String
+  print(a.runtimeType);
+  print(b.runtimeType);
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(8)">📸 Tampilkan VS Code 8</button>
-        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img8').style.display='block'">
+            📸 Tampilkan VS Code 8
+        </button>
+    </div>
+    <img id="img8" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 8%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EType Inference%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img8')">
+</div>
 
-        <!-- ==================== SLIDE 9 ==================== -->
-        <div class="card">
-            <h3>🔒 9. Pembatasan Tipe (Interface Iterable)</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">void</span> printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T items) {
-  <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> items) print(item);
+<!-- ==================== SLIDE 9 ==================== -->
+<div class="section">
+    <h2>9. Pembatasan Tipe pada Interface (Iterable)</h2>
+    <div class="code-box">
+        <pre><code>void printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T items) {
+  for (var item in items) print(item);
 }
-<span class="keyword">void</span> <span class="class">main</span>() {
-  printIterable&lt;List&lt;<span class="keyword">int</span>&gt;&gt;([1, 2, 3]);
-  <span class="comment">// printIterable<int>(10); // ERROR!</span>
-}</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(9)">📸 Tampilkan VS Code 9</button>
-        </div>
 
-        <!-- ==================== SLIDE 10 ==================== -->
-        <div class="card">
-            <h3>🐪 10. Pembatasan dengan Abstract Class</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="class">Animal</span> { <span class="keyword">void</span> makeSound(); }
-<span class="keyword">class</span> <span class="class">Dog</span> <span class="keyword">implements</span> Animal { <span class="keyword">void</span> makeSound() => print(<span class="string">"Woof!"</span>); }
-<span class="keyword">class</span> <span class="class">AnimalCage</span>&lt;T extends Animal&gt; {
+void main() {
+  printIterable&lt;List&lt;int&gt;&gt;([1, 2, 3]);
+  // printIterable&lt;int&gt;(10); // ERROR!
+}</code></pre>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img9').style.display='block'">
+            📸 Tampilkan VS Code 9
+        </button>
+    </div>
+    <img id="img9" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 9%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EIterable Constraint%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img9')">
+</div>
+
+<!-- ==================== SLIDE 10 ==================== -->
+<div class="section">
+    <h2>10. Pembatasan Tipe dengan Abstract Class</h2>
+    <div class="code-box">
+        <pre><code>abstract class Animal { void makeSound(); }
+class Dog implements Animal { void makeSound() => print("Woof!"); }
+class AnimalCage&lt;T extends Animal&gt; {
   T animal;
-  AnimalCage(<span class="keyword">this</span>.animal);
-  <span class="keyword">void</span> sound() => animal.makeSound();
+  AnimalCage(this.animal);
+  void sound() => animal.makeSound();
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(10)">📸 Tampilkan VS Code 10</button>
-        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img10').style.display='block'">
+            📸 Tampilkan VS Code 10
+        </button>
+    </div>
+    <img id="img10" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 10%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EAbstract Class%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img10')">
+</div>
 
-        <!-- ==================== SLIDE 11 ==================== -->
-        <div class="card">
-            <h3>💼 11. Praktik: Repository, Swap, Triple</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">Repository</span>&lt;T&gt; {
-  <span class="keyword">final</span> List&lt;T&gt; _items = [];
-  <span class="keyword">void</span> save(T item) => _items.add(item);
+<!-- ==================== SLIDE 11 ==================== -->
+<div class="section">
+    <h2>11. Praktik Generic Class & Fungsi</h2>
+    <div class="code-box">
+        <pre><code>class Repository&lt;T&gt; {
+  final List&lt;T&gt; _items = [];
+  void save(T item) => _items.add(item);
   List&lt;T&gt; getAll() => _items;
 }
-<span class="keyword">void</span> swap&lt;T&gt;(List&lt;T&gt; list, <span class="keyword">int</span> i, <span class="keyword">int</span> j) {
+
+void swap&lt;T&gt;(List&lt;T&gt; list, int i, int j) {
   T temp = list[i]; list[i] = list[j]; list[j] = temp;
 }
-<span class="keyword">class</span> <span class="class">Triple</span>&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(11)">📸 Tampilkan VS Code 11</button>
-        </div>
 
-        <!-- ==================== SLIDE 12 ==================== -->
-        <div class="card">
-            <h3>⚖️ 12. Perbandingan Generic vs Dynamic vs Object</h3>
-            <table class="table-compare">
-                <tr><th>Aspect</th><th>Generic&lt;T&gt;</th><th>dynamic</th><th>Object</th></tr>
-                <tr><td>Type Safety</td><td class="check">✅ Compile-time</td><td class="cross">❌ Runtime</td><td class="check">✅ Compile-time</td></tr>
-                <tr><td>Performance</td><td class="check">✅ Optimal</td><td class="cross">❌ Overhead</td><td class="check">✅ Optimal</td></tr>
-                <tr><td>Casting</td><td>Tidak perlu</td><td>Tidak perlu</td><td>Perlu casting</td></tr>
-            </table>
-            <button class="btn-screenshot" onclick="showScreenshot(12)">📸 Tampilkan VS Code 12</button>
-        </div>
+class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img11').style.display='block'">
+            📸 Tampilkan VS Code 11
+        </button>
+    </div>
+    <img id="img11" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 11%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EPraktik Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img11')">
+</div>
 
-        <!-- ==================== SLIDE 13 ==================== -->
-        <div class="card">
-            <h3>🗄️ 13. Studi Kasus: Cache Generic</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">Cache</span>&lt;T&gt; {
-  <span class="keyword">final</span> Map&lt;String, T&gt; _storage = {};
-  <span class="keyword">void</span> set(String key, T value) => _storage[key] = value;
+<!-- ==================== SLIDE 12 ==================== -->
+<div class="section">
+    <h2>12. Generic vs Dynamic vs Object</h2>
+    <table class="table-compare">
+        <tr><th>Aspect</th><th>Generic&lt;T&gt;</th><th>dynamic</th><th>Object</th></tr>
+        <tr><td>Type Safety</td><td class="check">✅ Compile-time</td><td class="cross">❌ Runtime</td><td class="check">✅ Compile-time</td></tr>
+        <tr><td>Performance</td><td class="check">✅ Optimal</td><td class="cross">❌ Overhead</td><td class="check">✅ Optimal</td></tr>
+        <tr><td>Casting</td><td>Tidak perlu</td><td>Tidak perlu</td><td>Perlu casting</td></tr>
+    </table>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img12').style.display='block'">
+            📸 Tampilkan VS Code 12
+        </button>
+    </div>
+    <img id="img12" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 12%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EPerbandingan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img12')">
+</div>
+
+<!-- ==================== SLIDE 13 ==================== -->
+<div class="section">
+    <h2>13. Studi Kasus - Cache Generic</h2>
+    <div class="code-box">
+        <pre><code>class Cache&lt;T&gt; {
+  final Map&lt;String, T&gt; _storage = {};
+  void set(String key, T value) => _storage[key] = value;
   T? get(String key) => _storage[key];
-}
-<span class="keyword">class</span> <span class="class">Product</span> { String name; <span class="keyword">int</span> price; }
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> cache = Cache&lt;Product&gt;();
-  cache.set(<span class="string">"p1"</span>, Product(<span class="string">"Laptop"</span>, 1000));
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(13)">📸 Tampilkan VS Code 13</button>
-        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img13').style.display='block'">
+            📸 Tampilkan VS Code 13
+        </button>
+    </div>
+    <img id="img13" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 13%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ECache Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img13')">
+</div>
 
-        <!-- ==================== SLIDE 14 ==================== -->
-        <div class="card">
-            <h3>📝 14. Latihan: Stack, MergeLists, Response</h3>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">class</span> <span class="class">Stack</span>&lt;T&gt; {
-  <span class="keyword">final</span> List&lt;T&gt; _items = [];
-  <span class="keyword">void</span> push(T item) => _items.add(item);
+<!-- ==================== SLIDE 14 ==================== -->
+<div class="section">
+    <h2>14. Latihan: Stack, MergeLists, Response</h2>
+    <div class="code-box">
+        <pre><code>class Stack&lt;T&gt; {
+  final List&lt;T&gt; _items = [];
+  void push(T item) => _items.add(item);
   T pop() => _items.removeLast();
   T peek() => _items.last;
 }
+
 List&lt;T&gt; mergeLists&lt;T&gt;(List&lt;T&gt; a, List&lt;T&gt; b) => [...a, ...b];
-<span class="keyword">class</span> <span class="class">Response</span>&lt;T&gt; {
-  T? data; String? error;
-  Response.success(<span class="keyword">this</span>.data) : error = <span class="keyword">null</span>;
-  Response.error(<span class="keyword">this</span>.error) : data = <span class="keyword">null</span>;
+
+class Response&lt;T&gt; { T? data; String? error;
+  Response.success(this.data) : error = null;
+  Response.error(this.error) : data = null;
 }</code></pre>
-            </div>
-            <button class="btn-screenshot" onclick="showScreenshot(14)">📸 Tampilkan VS Code 14</button>
-        </div>
-
-        <!-- RINGKASAN -->
-        <div class="summary-box">
-            <h3>✨ Ringkasan Manfaat Generic</h3>
-            <ul>
-                <li><strong>Type Safety</strong> - Error terdeteksi saat compile-time</li>
-                <li><strong>Code Reusability</strong> - Satu class untuk berbagai tipe data</li>
-                <li><strong>No Casting</strong> - Tidak perlu konversi tipe manual</li>
-                <li><strong>Performance</strong> - Lebih optimal dari dynamic</li>
-                <li><strong>Constraints</strong> - Bisa batasi tipe dengan extends</li>
-            </ul>
-        </div>
-
-        <!-- KESIMPULAN -->
-        <div class="card">
-            <h3>📌 Kesimpulan</h3>
-            <ul>
-                <li>✅ Generic membuat kode TYPE-SAFE dan REUSABLE</li>
-                <li>✅ Bisa digunakan di class, fungsi, dan collections</li>
-                <li>✅ Type inference memudahkan penggunaan</li>
-                <li>✅ Constraints (extends) membatasi tipe yang diperbolehkan</li>
-            </ul>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <p>🚀 Demikian pembahasan konsep Generic dalam bahasa Dart.</p>
-            <p>💫 Usman Yakin Trio Sinada | 251410006 | SI.2A</p>
-        </div>
     </div>
-
-    <!-- MODAL POPUP -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <img id="modalImg" src="" alt="Screenshot">
-            <br>
-            <button class="close-modal" onclick="closeModal()">✖ Tutup</button>
-        </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img14').style.display='block'">
+            📸 Tampilkan VS Code 14
+        </button>
     </div>
+    <img id="img14" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 14%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ELatihan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img14')">
+</div>
 
-    <script>
-        // Fungsi Copy Code
-        function copyCode(btn) {
-            const pre = btn.parentElement.querySelector('pre');
-            const code = pre.innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                btn.textContent = 'Copied! ✓';
-                setTimeout(() => btn.textContent = 'Copy', 2000);
-            });
-        }
+<!-- ==================== SLIDE 15 ==================== -->
+<div class="section">
+    <h2>15. Challenge - Generic Repository</h2>
+    <div class="code-box">
+        <pre><code>class Repository&lt;T&gt; {
+  final List&lt;T&gt; _data = [];
+  void add(T item) => _data.add(item);
+  List&lt;T&gt; getAll() => _data;
+  void remove(T item) => _data.remove(item);
+}</code></pre>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="document.getElementById('img15').style.display='block'">
+            📸 Tampilkan VS Code 15
+        </button>
+    </div>
+    <img id="img15" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 15%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EChallenge%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img15')">
+</div>
 
-        // Data screenshot (ganti dengan Base64 gambar asli Anda)
-        function getScreenshotImage(num) {
-            // Placeholder dengan tampilan keren
-            const images = {
-                1: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%230a0f1a'/%3E%3Ctext x='400' y='200' fill='%2300ffcc' font-size='28' text-anchor='middle' font-family='monospace'%3E📸 VS Code - Slide 1%3C/text%3E%3Ctext x='400' y='250' fill='%23ff66cc' font-size='18' text-anchor='middle'%3ETanpa Generic%3C/text%3E%3Ctext x='400' y='300' fill='%236a9955' font-size='14' text-anchor='middle'%3EGanti dengan screenshot asli Anda%3C/text%3E%3C/svg%3E`,
-                2: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%230a0f1a'/%3E%3Ctext x='400' y='200' fill='%2300ffcc' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 2%3C/text%3E%3Ctext x='400' y='250' fill='%23ff66cc' font-size='18' text-anchor='middle'%3EDengan Generic%3C/text%3E%3C/svg%3E`,
-            };
-            return images[num] || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%230a0f1a'/%3E%3Ctext x='400' y='200' fill='%2300ffcc' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide ${num}%3C/text%3E%3Ctext x='400' y='250' fill='%23ff66cc' font-size='18' text-anchor='middle'%3ESlide ${num}%3C/text%3E%3C/svg%3E`;
-        }
+<!-- RINGKASAN -->
+<div class="summary-box">
+    <p>✨ KESIMPULAN</p>
+    <ul>
+        <li><strong>Universalitas Kode:</strong> Generic memungkinkan kelas dan fungsi beroperasi secara dinamis namun tetap terkontrol.</li>
+        <li><strong>Keamanan Tanpa Kompromi:</strong> Bounded generic (extends) membatasi cakupan tipe data.</li>
+        <li><strong>Struktur Data Terorganisir:</strong> Repository, Stack, Cache dapat digunakan tanpa menduplikasi kode.</li>
+        <li><strong>Optimalisasi Fungsi:</strong> Fungsi generik seperti swap/combine melayani berbagai jenis data.</li>
+        <li><strong>Intisari:</strong> Generic = kode reusable, type-safe, dan adaptif.</li>
+    </ul>
+</div>
 
-        // Tampilkan modal
-        function showScreenshot(num) {
-            const modal = document.getElementById('modal');
-            const img = document.getElementById('modalImg');
-            img.src = getScreenshotImage(num);
-            modal.style.display = 'flex';
-        }
+<!-- PENUTUP -->
+<div class="section">
+    <h2>📌 PENUTUP</h2>
+    <p>Demikian pemaparan mengenai konsep Generic dan Object-Oriented Programming (OOP) dalam bahasa Dart.</p>
+    <p style="margin-top: 15px;">Kekurangan dalam penyusunan tugas ini merupakan ruang untuk perbaikan. Semoga bermanfaat untuk pembelajaran Dart, khususnya pada konsep Generic dan OOP.</p>
+    <p style="margin-top: 20px; color: #ff00de;">~ Usman Yakin Trio Sinada | 251410006 | SI.2A ~</p>
+</div>
 
-        // Tutup modal
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
+<!-- FOOTER -->
+<div class="footer">
+    <p>© 2025 | Tugas Generic Dart | UIN Suska Riau</p>
+    <p>🚀 Cyberpunk Theme | Konsep Generic & OOP pada Dart</p>
+</div>
 
-        // Tutup modal jika klik luar
-        window.onclick = function(e) {
-            const modal = document.getElementById('modal');
-            if (e.target === modal) closeModal();
-        }
-    </script>
+</div>
+
+<!-- MODAL -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Full Size Screenshot">
+    </div>
+</div>
+
 </body>
 </html>
