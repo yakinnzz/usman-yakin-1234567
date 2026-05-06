@@ -243,7 +243,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 3: Tanpa Generic -->
+        <!-- SLIDE 1: Tanpa Generic -->
         <div class="card">
             <h3>📦 1. Tanpa Generic</h3>
             <p><strong>Penjelasan:</strong> Pada program ini, Box merupakan class yang digunakan untuk menyimpan data. Class Box menggunakan tipe data dynamic, sehingga dapat menampung berbagai jenis data. Namun karena tidak ada pembatasan tipe data, program berpotensi mengalami runtime error.</p>
@@ -269,19 +269,72 @@
   print(<span class="string">"Data setelah diubah: ${box.data}"</span>);
 }</code></pre>
             </code></pre>
- </div>
-    
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="toggleImage('img1')">
-            📁 GAMBAR VS Code
-        </button>
-    </div>
+<div class="section">
+<h2>1.Tanpa Generic</h2>
+<ul>
+  <li>
+    Pada program ini, <b>Box</b> merupakan class yang digunakan untuk menyimpan data.
+  </li>
 
-    <img id="img1" class="vscode-image" src="vscode1.png" alt="Tampilan VS Code" style="display:none;" 
-         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%230a1f0a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%2300f3ff%22 font-size=%2220%22 font-family=%22monospace%22%3E⚠️ vscode1.png TIDAK DITEMUKAN!%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2216%22%3EPastikan file gambar ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2214%22%3Edengan file HTML ini%3C/text%3E%3C/svg%3E';">
+  <li>
+    Class <b>Box</b> menggunakan tipe data <b>dynamic</b>, sehingga dapat menampung berbagai jenis data.
+  </li>
+
+  <li>
+    Data yang disimpan awalnya berupa <b>int</b>, kemudian dapat diubah menjadi <b>String</b>.
+  </li>
+
+  <li>
+    Karena tidak ada pembatasan tipe data, program berpotensi mengalami kesalahan.
+  </li>
+
+  <li>
+    Kesalahan biasanya terjadi saat program dijalankan <i>(runtime error)</i>.
+  </li>
+
+  <li>
+    Dengan demikian, penggunaan <b>dynamic</b> bersifat fleksibel namun kurang aman.
+  </li>
+</ul>
+<h3>Kode Program VS Code:</h3>
+<div class="code-box">
+<pre><code>
+// Nama  : USMAN YAKIN TRIO SINADA
+// NIM   : 251410006
+// Kelas : SI.2A
+
+// =====================
+// TANPA GENERIC
+// =====================
+class Box {
+  dynamic data;
+
+  Box(this.data);
+}
+
+void main() {
+  // Menyimpan data awal
+  var box = Box(42);
+
+  // Menampilkan data awal
+  int value = box.data;
+  print("Nilai awal: $value");
+
+  // Mengubah data
+  box.data = "Hello";
+
+  // Menampilkan data setelah diubah
+  print("Data setelah diubah: ${box.data}");
+}
+</code></pre>
 </div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 1
+</button>
 
-        <!-- SLIDE 4: Dengan Generic -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+        <!-- SLIDE 2: Dengan Generic -->
         <div class="card">
             <h3>✅ 2. Dengan Generic</h3>
             <p><strong>Penjelasan:</strong> Box&lt;T&gt; digunakan sebagai class generic yang dapat menyimpan berbagai tipe data. Tipe &lt;T&gt; membuat class Box menjadi fleksibel namun tetap aman karena tipe data ditentukan saat instansiasi.</p>
@@ -313,7 +366,7 @@ Nilai string: Hello</pre>
             <p><strong>✅ Keuntungan:</strong> Type safety di COMPILE-TIME!</p>
         </div>
 
-        <!-- SLIDE 5: Sintaks Generic -->
+        <!-- SLIDE 3: Sintaks Generic -->
         <div class="card">
             <h3>📖 3. Sintaks Generic Class dan Function</h3>
             <div class="code-block">
