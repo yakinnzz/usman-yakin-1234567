@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsep Generic Dart - Usman Yakin Trio Sinada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .identity {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .identity p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .card h4 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        /* Kode Program */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block pre {
+            color: #d4d4d4;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .keyword {
+            color: #569cd6;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        .code-block .class {
+            color: #4ec9b0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .copy-btn:hover {
+            background: #45a049;
+        }
+
+        /* Output */
+        .output {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: monospace;
+            color: #d4d4d4;
+        }
+
+        .output-title {
+            color: #4ec9b0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* List Manfaat */
+        .benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            background: #f0f0f0;
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        /* Tabel Perbandingan */
+        .table-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .table-comparison th,
+        .table-comparison td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .table-comparison th {
+            background: #667eea;
+            color: white;
+        }
+
+        .table-comparison td:first-child {
+            background: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .check {
+            color: green;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Ringkasan */
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .summary-box ul {
+            margin-left: 25px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .card h3 { font-size: 1.4em; }
+            .code-block pre { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header dengan Identitas -->
+        <div class="header">
+            <h1>📚 Konsep Generic</h1>
+            <h2>&</h2>
+            <h1>OOP pada Dart</h1>
+            <div class="identity">
+                <p>👨‍💻 Usman Yakin Trio Sinada</p>
+                <p>📋 251410006</p>
+                <p>🏫 SI.2A</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Tanpa Generic -->
+        <div class="card">
+            <h3>📦 1. Tanpa Generic</h3>
+            <p><strong>Penjelasan:</strong> Pada program ini, Box merupakan class yang digunakan untuk menyimpan data. Class Box menggunakan tipe data dynamic, sehingga dapat menampung berbagai jenis data. Namun karena tidak ada pembatasan tipe data, program berpotensi mengalami runtime error.</p>
+            
+            <h4>📝 Kode Program:</h4>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="comment">// Nama  : Usman Yakin Trio Sinada</span>
+<span class="comment">// NIM   : 251410006</span>
+<span class="comment">// Kelas : SI.2A</span>
+
+<span class="keyword">class</span> <span class="class">Box</span> {
+  <span class="keyword">dynamic</span> data;
+  Box(<span class="keyword">this</span>.data);
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> box = Box(42);
+  <span class="keyword">int</span> value = box.data;
+  print(<span class="string">"Nilai awal: $value"</span>);
+  
+  box.data = <span class="string">"Hello"</span>;
+  print(<span class="string">"Data setelah diubah: ${box.data}"</span>);
+}</code></pre>
+            </div>
+            
+            <h4>💻 Output:</h4>
+            <div class="output">
+                <div class="output-title">Output Program:</div>
+                <pre>Nilai awal: 42
+Data setelah diubah: Hello</pre>
+            </div>
+            <p><strong>⚠️ Masalah:</strong> Tidak ada pengecekan tipe saat compile-time, berpotensi runtime error!</p>
+        </div>
+
+        <!-- SLIDE 4: Dengan Generic -->
+        <div class="card">
+            <h3>✅ 2. Dengan Generic</h3>
+            <p><strong>Penjelasan:</strong> Box&lt;T&gt; digunakan sebagai class generic yang dapat menyimpan berbagai tipe data. Tipe &lt;T&gt; membuat class Box menjadi fleksibel namun tetap aman karena tipe data ditentukan saat instansiasi.</p>
+            
+            <h4>📝 Kode Program:</h4>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">class</span> <span class="class">Box</span>&lt;T&gt; {
+  T data;
+  Box(<span class="keyword">this</span>.data);
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> intBox = Box&lt;<span class="keyword">int</span>&gt;(42);
+  <span class="keyword">var</span> stringBox = Box&lt;<span class="keyword">String</span>&gt;(<span class="string">"Hello"</span>);
+  
+  print(<span class="string">"Nilai int: ${intBox.data}"</span>);
+  print(<span class="string">"Nilai string: ${stringBox.data}"</span>);
+  <span class="comment">// intBox.data = "Hello"; // ❌ ERROR compile-time!</span>
+}</code></pre>
+            </div>
+            
+            <h4>💻 Output:</h4>
+            <div class="output">
+                <div class="output-title">Output Program:</div>
+                <pre>Nilai int: 42
+Nilai string: Hello</pre>
+            </div>
+            <p><strong>✅ Keuntungan:</strong> Type safety di COMPILE-TIME!</p>
+        </div>
+
+        <!-- SLIDE 5: Sintaks Generic -->
+        <div class="card">
+            <h3>📖 3. Sintaks Generic Class dan Function</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">class</span> <span class="class">MyClass</span>&lt;T&gt; {
+  T data;
+  MyClass(<span class="keyword">this</span>.data);
+  T getData() => data;
+}
+
+T myFunc&lt;T&gt;(T value) => value;
+
+<span class="keyword">class</span> <span class="class">Pair</span>&lt;K, V&gt; {
+  K key;
+  V value;
+  Pair(<span class="keyword">this</span>.key, <span class="keyword">this</span>.value);
+  <span class="keyword">void</span> printPair() => print(<span class="string">"Key: $key, Value: $value"</span>);
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> myInt = MyClass&lt;<span class="keyword">int</span>&gt;(10);
+  <span class="keyword">var</span> myString = MyClass&lt;<span class="keyword">String</span>&gt;(<span class="string">"test"</span>);
+  print(myInt.getData());
+  print(myString.getData());
+  
+  <span class="keyword">var</span> pair = Pair&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"umur"</span>, 20);
+  pair.printPair();
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Kelas Box -->
+        <div class="card">
+            <h3>📦 4. Kelas Box&lt;T&gt;</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">class</span> <span class="class">Box</span>&lt;T&gt; {
+  T? _value;
+  Box(<span class="keyword">this</span>._value);
+  T? get value => _value;
+  <span class="keyword">void</span> setValue(T value) => _value = value;
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> intBox = Box&lt;<span class="keyword">int</span>&gt;(10);
+  print(<span class="string">"Int Box: ${intBox.value}"</span>);
+  intBox.setValue(20);
+  print(<span class="string">"Set Int: ${intBox.value}"</span>);
+  
+  <span class="keyword">var</span> stringBox = Box&lt;<span class="keyword">String</span>&gt;(<span class="string">"Hello"</span>);
+  print(<span class="string">"String Box: ${stringBox.value}"</span>);
+  stringBox.setValue(<span class="string">"World"</span>);
+  print(<span class="string">"Set String: ${stringBox.value}"</span>);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Multiple Type -->
+        <div class="card">
+            <h3>🔑 5. Multiple Type Parameters</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">class</span> <span class="class">Pair</span>&lt;K, V&gt; {
+  K key;
+  V value;
+  Pair(<span class="keyword">this</span>.key, <span class="keyword">this</span>.value);
+  <span class="keyword">void</span> printPair() => print(<span class="string">"Key: $key, Value: $value"</span>);
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> pair1 = Pair&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"age"</span>, 30);
+  pair1.printPair();
+  
+  <span class="keyword">var</span> pair2 = Pair&lt;<span class="keyword">String</span>, <span class="keyword">String</span>&gt;(<span class="string">"name"</span>, <span class="string">"Alice"</span>);
+  pair2.printPair();
+  
+  <span class="keyword">var</span> pair3 = Pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt;(1, 2.71);
+  pair3.printPair();
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Combine -->
+        <div class="card">
+            <h3>🔗 6. Menggabungkan Dua Tipe Data Berbeda</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">String</span> combine&lt;T, U&gt;(T value1, U value2) {
+  <span class="keyword">return</span> <span class="string">'$value1, $value2'</span>;
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> result1 = combine&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"Number is"</span>, 10);
+  print(result1);
+  
+  <span class="keyword">var</span> result2 = combine&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt;(10, 20.5);
+  print(result2);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Extends -->
+        <div class="card">
+            <h3>🛡️ 7. Generic Dengan Extends</h3>
+            <p><strong>Penjelasan:</strong> <code>&lt;T extends num&gt;</code> membatasi tipe data hanya turunan dari num (int, double).</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">class</span> <span class="class">NumberBox</span>&lt;T extends num&gt; {
+  T value;
+  NumberBox(<span class="keyword">this</span>.value);
+  T getValue() => value;
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> intBox = NumberBox&lt;<span class="keyword">int</span>&gt;(10);
+  print(<span class="string">"Int: ${intBox.getValue()}"</span>);
+  
+  <span class="keyword">var</span> doubleBox = NumberBox&lt;<span class="keyword">double</span>&gt;(3.14);
+  print(<span class="string">"Double: ${doubleBox.getValue()}"</span>);
+  
+  <span class="comment">// var stringBox = NumberBox<String>("test"); // ❌ Error!</span>
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Type Inference -->
+        <div class="card">
+            <h3>🎯 8. Type Inference (Inferensi Tipe)</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>T myFunc&lt;T&gt;(T value) => value;
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> intValue = myFunc(10); <span class="comment">// Dart inferensi T sebagai int</span>
+  print(intValue.runtimeType); <span class="comment">// Output: int</span>
+  
+  <span class="keyword">var</span> stringValue = myFunc(<span class="string">"test"</span>); <span class="comment">// Dart inferensi T sebagai String</span>
+  print(stringValue.runtimeType); <span class="comment">// Output: String</span>
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Pembatasan Tipe dengan Interface -->
+        <div class="card">
+            <h3>🔒 9. Pembatasan Tipe pada Interface dan Class</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">void</span> printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T iterable) {
+  <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> iterable) {
+    print(item);
+  }
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  printIterable&lt;List&lt;<span class="keyword">int</span>&gt;&gt;([1, 2, 3]);
+  printIterable&lt;Set&lt;<span class="keyword">String</span>&gt;&gt;({<span class="string">'apple'</span>, <span class="string">'banana'</span>});
+  <span class="comment">// printIterable<int>(10); // ❌ Error!</span>
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Abstract Class -->
+        <div class="card">
+            <h3>🐾 10. Pembatasan Tipe dengan Abstract Class</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="class">Animal</span> {
+  <span class="keyword">void</span> makeSound();
+}
+
+<span class="keyword">class</span> <span class="class">Dog</span> <span class="keyword">implements</span> Animal {
+  <span class="keyword">void</span> makeSound() => print(<span class="string">"Woof!"</span>);
+}
+
+<span class="keyword">class</span> <span class="class">Cat</span> <span class="keyword">implements</span> Animal {
+  <span class="keyword">void</span> makeSound() => print(<span class="string">"Meow!"</span>);
+}
+
+<span class="keyword">class</span> <span class="class">AnimalCage</span>&lt;T extends Animal&gt; {
+  T animal;
+  AnimalCage(<span class="keyword">this</span>.animal);
+  <span class="keyword">void</span> sound() => animal.makeSound();
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  AnimalCage&lt;Dog&gt;(Dog()).sound();
+  AnimalCage&lt;Cat&gt;(Cat()).sound();
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Praktik 1 -->
+        <div class="card">
+            <h3>💼 11. Praktik Generic Class & Fungsi</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="comment">// Repository Generic</span>
+<span class="keyword">class</span> <span class="class">Repository</span>&lt;T&gt; {
+  <span class="keyword">final</span> List&lt;T&gt; _items = [];
+  <span class="keyword">void</span> save(T item) => _items.add(item);
+  T? getById(<span class="keyword">int</span> id) => id &lt; _items.length ? _items[id] : <span class="keyword">null</span>;
+  List&lt;T&gt; getAll() => _items;
+}
+
+<span class="comment">// Fungsi swap</span>
+<span class="keyword">void</span> swap&lt;T&gt;(List&lt;T&gt; list, <span class="keyword">int</span> i, <span class="keyword">int</span> j) {
+  T temp = list[i];
+  list[i] = list[j];
+  list[j] = temp;
+}
+
+<span class="comment">// Class Triple</span>
+<span class="keyword">class</span> <span class="class">Triple</span>&lt;A, B, C&gt; {
+  A first; B second; C third;
+  Triple(<span class="keyword">this</span>.first, <span class="keyword">this</span>.second, <span class="keyword">this</span>.third);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Perbandingan Generic vs Dynamic vs Object -->
+        <div class="card">
+            <h3>⚖️ 12. Generic vs Dynamic vs Object</h3>
+            <table class="table-comparison">
+                <tr>
+                    <th>Aspect</th>
+                    <th>Generic&lt;T&gt;</th>
+                    <th>dynamic</th>
+                    <th>Object</th>
+                </tr>
+                <tr>
+                    <td>Type Safety</td>
+                    <td class="check">✅ Compile-time</td>
+                    <td class="cross">❌ Runtime</td>
+                    <td class="check">✅ Compile-time</td>
+                </tr>
+                <tr>
+                    <td>Flexibility</td>
+                    <td>Terbatas (sesuai T)</td>
+                    <td>Sangat fleksibel</td>
+                    <td>Terbatas</td>
+                </tr>
+                <tr>
+                    <td>Performance</td>
+                    <td class="check">✅ Optimal</td>
+                    <td class="cross">❌ Overhead</td>
+                    <td class="check">✅ Optimal</td>
+                </tr>
+                <tr>
+                    <td>Casting</td>
+                    <td>Tidak perlu</td>
+                    <td>Tidak perlu</td>
+                    <td>Perlu casting</td>
+                </tr>
+            </table>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="comment">// Generic: aman</span>
+Box&lt;<span class="keyword">int</span>&gt; box1 = Box&lt;<span class="keyword">int</span>&gt;(42);
+
+<span class="comment">// Dynamic: tidak aman</span>
+<span class="keyword">dynamic</span> box2 = 42;
+
+<span class="comment">// Object: perlu casting</span>
+Object box3 = 42;</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: Studi Kasus Cache -->
+        <div class="card">
+            <h3>🗄️ 13. Studi Kasus - Cache Generic</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="keyword">class</span> <span class="class">Cache</span>&lt;T&gt; {
+  <span class="keyword">final</span> Map&lt;String, T&gt; _storage = {};
+  
+  <span class="keyword">void</span> set(String key, T value) => _storage[key] = value;
+  T? get(String key) => _storage[key];
+  <span class="keyword">void</span> remove(String key) => _storage.remove(key);
+}
+
+<span class="keyword">class</span> <span class="class">Product</span> {
+  String name;
+  <span class="keyword">int</span> price;
+  Product(<span class="keyword">this</span>.name, <span class="keyword">this</span>.price);
+  @override
+  String toString() => <span class="string">'Product($name, \$$price)'</span>;
+}
+
+<span class="keyword">void</span> <span class="class">main</span>() {
+  <span class="keyword">var</span> userCache = Cache&lt;String&gt;();
+  userCache.set(<span class="string">'name'</span>, <span class="string">'Alice'</span>);
+  
+  <span class="keyword">var</span> productCache = Cache&lt;Product&gt;();
+  productCache.set(<span class="string">'p1'</span>, Product(<span class="string">'Laptop'</span>, 1000));
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: Latihan & Ringkasan -->
+        <div class="card">
+            <h3>📝 14. Latihan</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code><span class="comment">// 1. Stack<T></span>
+<span class="keyword">class</span> <span class="class">Stack</span>&lt;T&gt; {
+  <span class="keyword">final</span> List&lt;T&gt; _items = [];
+  <span class="keyword">void</span> push(T item) => _items.add(item);
+  T? pop() => _items.isEmpty ? <span class="keyword">null</span> : _items.removeLast();
+  T? peek() => _items.isEmpty ? <span class="keyword">null</span> : _items.last;
+}
+
+<span class="comment">// 2. Merge Lists</span>
+List&lt;T&gt; mergeLists&lt;T&gt;(List&lt;T&gt; a, List&lt;T&gt; b) => [...a, ...b];
+
+<span class="comment">// 3. Response<T></span>
+<span class="keyword">class</span> <span class="class">Response</span>&lt;T&gt; {
+  T? data;
+  String? error;
+  Response.success(<span class="keyword">this</span>.data) : error = <span class="keyword">null</span>;
+  Response.error(<span class="keyword">this</span>.error) : data = <span class="keyword">null</span>;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Ringkasan Manfaat -->
+        <div class="summary-box">
+            <h3>✨ Ringkasan Manfaat Generic</h3>
+            <ul>
+                <li><strong>Type Safety</strong> - Kesalahan tipe data terdeteksi saat compile-time</li>
+                <li><strong>Code Reusability</strong> - Satu class/function bisa digunakan untuk berbagai tipe</li>
+                <li><strong>No Casting Needed</strong> - Tidak perlu konversi tipe data manual</li>
+                <li><strong>Performance</strong> - Lebih optimal dibanding dynamic</li>
+                <li><strong>Constraints</strong> - Bisa membatasi tipe yang diperbolehkan dengan extends</li>
+            </ul>
+        </div>
+
+        <!-- Kesimpulan -->
+        <div class="card">
+            <h3>📌 Kesimpulan</h3>
+            <ul class="benefits">
+                <li>✅ Konsep Generic pada Dart memungkinkan class dan function bekerja dengan berbagai tipe data</li>
+                <li>✅ Generic membuat program menjadi lebih fleksibel karena satu kode dapat digunakan untuk banyak tipe data</li>
+                <li>✅ Penerapan bounded generic seperti extends membantu membatasi tipe data agar lebih aman</li>
+                <li>✅ Generic class seperti Repository, Stack, Cache, dan Pair memudahkan pengelolaan data secara terstruktur</li>
+                <li>✅ Generic function seperti swap dan combine meningkatkan efisiensi tanpa perlu membuat banyak fungsi berbeda</li>
+                <li>✅ Penggunaan Generic dalam OOP membuat program lebih reusable, aman, dan mudah dikembangkan</li>
+            </ul>
+        </div>
+
+        <!-- Penutup -->
+        <div class="footer">
+            <p>📚 Demikian pembahasan mengenai konsep Generic dalam bahasa Dart.</p>
+            <p>Semoga bermanfaat! 🙏</p>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const pre = button.parentElement.querySelector('pre');
+            const code = pre.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
