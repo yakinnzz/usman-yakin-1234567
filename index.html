@@ -37,29 +37,6 @@
             z-index: 0;
         }
 
-        /* Efek Bintang */
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
-                              radial-gradient(1px 1px at 60px 80px, #0ff, rgba(0,0,0,0));
-            background-repeat: no-repeat;
-            background-size: 200px 200px;
-            opacity: 0.5;
-            pointer-events: none;
-            z-index: 0;
-            animation: stars 20s linear infinite;
-        }
-
-        @keyframes stars {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100px); }
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -67,7 +44,7 @@
             z-index: 1;
         }
 
-        /* Header Futuristik */
+        /* Header */
         .header {
             background: rgba(10, 20, 40, 0.8);
             backdrop-filter: blur(10px);
@@ -81,29 +58,20 @@
         }
 
         @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 204, 0.3); border-color: rgba(0, 255, 204, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(0, 255, 204, 0.6); border-color: rgba(0, 255, 204, 0.8); }
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 204, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 204, 0.6); }
         }
 
         .header h1 {
             color: #00ffcc;
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-            letter-spacing: 2px;
-        }
-
-        .header h2 {
-            color: #ff66cc;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            text-shadow: 0 0 5px #ff66cc;
+            text-shadow: 0 0 10px #00ffcc;
         }
 
         .identity {
-            background: linear-gradient(135deg, rgba(0, 255, 204, 0.2) 0%, rgba(255, 102, 204, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.2), rgba(255, 102, 204, 0.2));
             backdrop-filter: blur(5px);
-            color: #00ffcc;
             padding: 15px;
             border-radius: 15px;
             display: inline-block;
@@ -111,64 +79,32 @@
             border: 1px solid #00ffcc;
         }
 
-        .identity p {
-            margin: 5px 0;
-            font-size: 1.1em;
-        }
-
-        /* Card Futuristik */
+        /* Card */
         .card {
             background: rgba(15, 25, 45, 0.7);
             backdrop-filter: blur(8px);
             border-radius: 20px;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
             border-right: 2px solid #00ffcc;
             border-bottom: 2px solid #00ffcc;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .card:hover::before {
-            left: 100%;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.4);
-            border-right: 2px solid #ff66cc;
-            border-bottom: 2px solid #ff66cc;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
         }
 
         .card h3 {
             color: #00ffcc;
-            font-size: 1.8em;
+            font-size: 1.6em;
             margin-bottom: 15px;
-            border-left: 5px solid #ff66cc;
+            border-left: 4px solid #ff66cc;
             padding-left: 15px;
-            text-shadow: 0 0 5px #00ffcc;
         }
 
-        .card h4 {
-            color: #ff66cc;
-            margin: 20px 0 10px 0;
-            font-size: 1.3em;
-        }
-
-        /* Kode Program Futuristik */
+        /* Code Block */
         .code-block {
             background: #0a0f1a;
             border-radius: 12px;
@@ -177,258 +113,180 @@
             overflow-x: auto;
             position: relative;
             border: 1px solid #00ffcc;
-            box-shadow: inset 0 0 20px rgba(0, 255, 204, 0.1);
         }
 
         .code-block pre {
             color: #e0e0e0;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.5;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
             margin: 0;
         }
 
-        .code-block .comment {
-            color: #6a9955;
-        }
-
-        .code-block .keyword {
-            color: #569cd6;
-        }
-
-        .code-block .string {
-            color: #ce9178;
-        }
-
-        .code-block .class {
-            color: #4ec9b0;
-        }
+        .comment { color: #6a9955; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .class { color: #4ec9b0; }
 
         .copy-btn {
             position: absolute;
             top: 10px;
             right: 10px;
             background: linear-gradient(135deg, #00ffcc, #ff66cc);
-            color: #0a0f1a;
             border: none;
             padding: 5px 15px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 12px;
             font-weight: bold;
+        }
+
+        /* Tombol */
+        .btn-screenshot {
+            background: linear-gradient(135deg, #00ffcc, #ff66cc);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
             transition: all 0.3s ease;
         }
 
-        .copy-btn:hover {
+        .btn-screenshot:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px #00ffcc;
         }
 
-        /* Output Futuristik */
-        .output {
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
             background: #0a0f1a;
+            border: 2px solid #00ffcc;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
             border-radius: 10px;
-            padding: 15px;
-            margin-top: 10px;
-            font-family: monospace;
-            color: #00ffcc;
-            border-left: 4px solid #ff66cc;
         }
 
-        .output-title {
-            color: #ff66cc;
-            margin-bottom: 10px;
-            font-weight: bold;
+        .close-modal {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            cursor: pointer;
         }
 
-        /* List Manfaat */
-        .benefits {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefits li {
-            background: rgba(0, 255, 204, 0.1);
-            margin: 10px 0;
-            padding: 10px 15px;
-            border-radius: 10px;
-            border-left: 4px solid #00ffcc;
-            color: #ccc;
-            transition: all 0.3s ease;
-        }
-
-        .benefits li:hover {
-            background: rgba(0, 255, 204, 0.2);
-            border-left: 4px solid #ff66cc;
-            transform: translateX(5px);
-        }
-
-        /* Tabel Perbandingan Futuristik */
-        .table-comparison {
+        /* Tabel */
+        .table-compare {
             width: 100%;
             border-collapse: collapse;
             margin: 15px 0;
         }
 
-        .table-comparison th,
-        .table-comparison td {
+        .table-compare th, .table-compare td {
             border: 1px solid #00ffcc;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
         }
 
-        .table-comparison th {
-            background: linear-gradient(135deg, #00ffcc20, #ff66cc20);
-            color: #00ffcc;
-            text-shadow: 0 0 5px #00ffcc;
+        .table-compare th {
+            background: rgba(0, 255, 204, 0.2);
         }
 
-        .table-comparison td:first-child {
-            background: rgba(0, 255, 204, 0.1);
-            font-weight: bold;
-        }
+        .check { color: #00ffcc; }
+        .cross { color: #ff4444; }
 
-        .check {
-            color: #00ffcc;
-            font-weight: bold;
-        }
-
-        .cross {
-            color: #ff4444;
-            font-weight: bold;
-        }
-
-        /* Ringkasan Futuristik */
+        /* Summary */
         .summary-box {
             background: linear-gradient(135deg, rgba(0, 255, 204, 0.2), rgba(255, 102, 204, 0.2));
-            backdrop-filter: blur(10px);
-            color: #00ffcc;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             margin: 20px 0;
             border: 1px solid #00ffcc;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
-        }
-
-        .summary-box ul {
-            margin-left: 25px;
-        }
-
-        /* Tombol */
-        .button {
-            background: linear-gradient(135deg, #00ffcc, #ff66cc);
-            color: #0a0f1a;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #00ffcc;
         }
 
         .footer {
             text-align: center;
             padding: 20px;
-            color: #00ffcc;
-            text-shadow: 0 0 5px #00ffcc;
         }
 
         @media (max-width: 768px) {
-            .header h1 { font-size: 1.8em; }
-            .card h3 { font-size: 1.4em; }
-            .code-block pre { font-size: 12px; }
+            .header h1 { font-size: 1.5em; }
+            .code-block pre { font-size: 11px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Futuristik -->
+        <!-- HEADER -->
         <div class="header">
-            <h1>🚀 Konsep Generic</h1>
-            <h2>&</h2>
-            <h1>OOP pada Dart</h1>
+            <h1>🚀 Konsep Generic & OOP pada Dart</h1>
             <div class="identity">
-                <p>👨‍🚀 Usman Yakin Trio Sinada</p>
-                <p>📡 251410006</p>
-                <p>🏛️ SI.2A</p>
+                <p>👨‍🚀 Usman Yakin Trio Sinada | 📡 251410006 | 🏛️ SI.2A</p>
             </div>
         </div>
 
-        <!-- SLIDE 3: Tanpa Generic -->
+        <!-- ==================== SLIDE 1 ==================== -->
         <div class="card">
             <h3>⚠️ 1. Tanpa Generic</h3>
-            <p><strong>Penjelasan:</strong> Box menggunakan tipe data dynamic, dapat menampung berbagai jenis data tetapi TIDAK AMAN.</p>
-            
-            <h4>📝 Kode Program:</h4>
+            <p>Class Box menggunakan <code>dynamic</code> → bisa diisi tipe apa saja, TIDAK AMAN (runtime error berpotensi).</p>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="comment">// Nama  : Usman Yakin Trio Sinada</span>
-<span class="comment">// NIM   : 251410006</span>
-<span class="comment">// Kelas : SI.2A</span>
-
-<span class="keyword">class</span> <span class="class">Box</span> {
+                <pre><code><span class="keyword">class</span> <span class="class">Box</span> {
   <span class="keyword">dynamic</span> data;
   Box(<span class="keyword">this</span>.data);
 }
-
 <span class="keyword">void</span> <span class="class">main</span>() {
   <span class="keyword">var</span> box = Box(42);
-  <span class="keyword">int</span> value = box.data;
-  print(<span class="string">"Nilai awal: $value"</span>);
-  
-  box.data = <span class="string">"Hello"</span>;
-  print(<span class="string">"Data setelah diubah: ${box.data}"</span>);
+  print(box.data);
+  box.data = <span class="string">"Hello"</span>; <span class="comment">// Bisa diubah jadi String</span>
 }</code></pre>
-  </div>
+            </div>
+            <button class="btn-screenshot" onclick="showScreenshot(1)">📸 Tampilkan VS Code 1</button>
+        </div>
 
-    <img id="img1" class="vscode-image" 
-         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%231e1e2e'/%3E%3Crect x='10' y='10' width='780' height='380' fill='none' stroke='%2300ffcc' stroke-width='2'/%3E%3Ctext x='30' y='50' fill='%2300ffcc' font-size='18' font-family='monospace' font-weight='bold'%3E📁 VS Code - Output Program%3C/text%3E%3Ctext x='30' y='90' fill='%23d4d4d4' font-size='14' font-family='monospace'%3E%3E dart run box.dart%3C/text%3E%3Ctext x='30' y='120' fill='%23ce9178' font-size='14' font-family='monospace'%3ENilai awal: 42%3C/text%3E%3Ctext x='30' y='150' fill='%23ce9178' font-size='14' font-family='monospace'%3EData setelah diubah: Hello%3C/text%3E%3Ctext x='30' y='200' fill='%236a9955' font-size='12' font-family='monospace'%3E✓ Program selesai (kode 0)%3C/text%3E%3C/svg%3E"
-         alt="Tampilan VS Code" style="display:none;">
-</div>
-
-        <!-- SLIDE 4: Dengan Generic -->
+        <!-- ==================== SLIDE 2 ==================== -->
         <div class="card">
             <h3>✅ 2. Dengan Generic</h3>
-            <p><strong>Penjelasan:</strong> Box&lt;T&gt; menggunakan generic, tipe data ditentukan saat instansiasi → AMAN.</p>
-            
-            <h4>📝 Kode Program:</h4>
+            <p>Box&lt;T&gt; → tipe ditentukan saat instansiasi, AMAN (compile-time error jika salah tipe).</p>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">Box</span>&lt;T&gt; {
   T data;
   Box(<span class="keyword">this</span>.data);
 }
-
 <span class="keyword">void</span> <span class="class">main</span>() {
   <span class="keyword">var</span> intBox = Box&lt;<span class="keyword">int</span>&gt;(42);
   <span class="keyword">var</span> stringBox = Box&lt;<span class="keyword">String</span>&gt;(<span class="string">"Hello"</span>);
-  
-  print(<span class="string">"Nilai int: ${intBox.data}"</span>);
-  print(<span class="string">"Nilai string: ${stringBox.data}"</span>);
-  <span class="comment">// intBox.data = "Hello"; // ❌ ERROR compile-time!</span>
+  print(intBox.data);
 }</code></pre>
+            </div>
+            <button class="btn-screenshot" onclick="showScreenshot(2)">📸 Tampilkan VS Code 2</button>
         </div>
-    
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="toggleImage('img1')">
-            📁 VS Code RUN
-        </button>
-    </div>
 
-    <img id="img2" class="vscode-image" src="vscode2.png" alt="Tampilan VS Code" style="display:none;" 
-         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%230a1f0a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%2300f3ff%22 font-size=%2220%22 font-family=%22monospace%22%3E⚠️ vscode2.png TIDAK DITEMUKAN!%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2216%22%3EPastikan file gambar ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2214%22%3Edengan file HTML ini%3C/text%3E%3C/svg%3E';">
-</div>
-
-        <!-- SLIDE 5: Sintaks Generic -->
+        <!-- ==================== SLIDE 3 ==================== -->
         <div class="card">
-            <h3>💻 3. Sintaks Generic Class dan Function</h3>
+            <h3>💻 3. Sintaks Generic Class & Function</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">MyClass</span>&lt;T&gt; {
@@ -436,32 +294,18 @@
   MyClass(<span class="keyword">this</span>.data);
   T getData() => data;
 }
-
 T myFunc&lt;T&gt;(T value) => value;
-
 <span class="keyword">class</span> <span class="class">Pair</span>&lt;K, V&gt; {
-  K key;
-  V value;
+  K key; V value;
   Pair(<span class="keyword">this</span>.key, <span class="keyword">this</span>.value);
-  <span class="keyword">void</span> printPair() => print(<span class="string">"Key: $key, Value: $value"</span>);
-}
-
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> myInt = MyClass&lt;<span class="keyword">int</span>&gt;(10);
-  <span class="keyword">var</span> myString = MyClass&lt;<span class="keyword">String</span>&gt;(<span class="string">"test"</span>);
-  print(myInt.getData());
-  print(myString.getData());
-  
-  <span class="keyword">var</span> pair = Pair&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"umur"</span>, 20);
-  pair.printPair();
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 img3')">📸vscode3.png</button>
+            <button class="btn-screenshot" onclick="showScreenshot(3)">📸 Tampilkan VS Code 3</button>
         </div>
 
-        <!-- SLIDE 6: Kelas Box -->
+        <!-- ==================== SLIDE 4 ==================== -->
         <div class="card">
-            <h3>📦 4. Kelas Box&lt;T&gt;</h3>
+            <h3>📦 4. Kelas Box&lt;T&gt; dengan Getter/Setter</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">Box</span>&lt;T&gt; {
@@ -469,73 +313,47 @@ T myFunc&lt;T&gt;(T value) => value;
   Box(<span class="keyword">this</span>._value);
   T? get value => _value;
   <span class="keyword">void</span> setValue(T value) => _value = value;
-}
-
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> intBox = Box&lt;<span class="keyword">int</span>&gt;(10);
-  print(<span class="string">"Int Box: ${intBox.value}"</span>);
-  intBox.setValue(20);
-  print(<span class="string">"Set Int: ${intBox.value}"</span>);
-  
-  <span class="keyword">var</span> stringBox = Box&lt;<span class="keyword">String</span>&gt;(<span class="string">"Hello"</span>);
-  print(<span class="string">"String Box: ${stringBox.value}"</span>);
-  stringBox.setValue(<span class="string">"World"</span>);
-  print(<span class="string">"Set String: ${stringBox.value}"</span>);
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 4 - Mode Futuristik')">📸 Tampilkan VS Code 4</button>
+            <button class="btn-screenshot" onclick="showScreenshot(4)">📸 Tampilkan VS Code 4</button>
         </div>
 
-        <!-- SLIDE 7: Multiple Type -->
+        <!-- ==================== SLIDE 5 ==================== -->
         <div class="card">
-            <h3>🔑 5. Multiple Type Parameters</h3>
+            <h3>🔑 5. Multiple Type Parameters (Pair)</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">Pair</span>&lt;K, V&gt; {
-  K key;
-  V value;
+  K key; V value;
   Pair(<span class="keyword">this</span>.key, <span class="keyword">this</span>.value);
   <span class="keyword">void</span> printPair() => print(<span class="string">"Key: $key, Value: $value"</span>);
 }
-
 <span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> pair1 = Pair&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"age"</span>, 30);
-  pair1.printPair();
-  
-  <span class="keyword">var</span> pair2 = Pair&lt;<span class="keyword">String</span>, <span class="keyword">String</span>&gt;(<span class="string">"name"</span>, <span class="string">"Alice"</span>);
-  pair2.printPair();
-  
-  <span class="keyword">var</span> pair3 = Pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt;(1, 2.71);
-  pair3.printPair();
+  <span class="keyword">var</span> pair = Pair&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"umur"</span>, 20);
+  pair.printPair();
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 5 - Mode Futuristik')">📸 Tampilkan VS Code 5</button>
+            <button class="btn-screenshot" onclick="showScreenshot(5)">📸 Tampilkan VS Code 5</button>
         </div>
 
-        <!-- SLIDE 8: Combine -->
+        <!-- ==================== SLIDE 6 ==================== -->
         <div class="card">
-            <h3>🔗 6. Menggabungkan Dua Tipe Data Berbeda</h3>
+            <h3>🔗 6. Fungsi Generic Combine 2 Tipe</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">String</span> combine&lt;T, U&gt;(T value1, U value2) {
-  <span class="keyword">return</span> <span class="string">'$value1, $value2'</span>;
-}
-
+                <pre><code><span class="keyword">String</span> combine&lt;T, U&gt;(T value1, U value2) => <span class="string">'$value1, $value2'</span>;
 <span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> result1 = combine&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"Number is"</span>, 10);
-  print(result1);
-  
-  <span class="keyword">var</span> result2 = combine&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt;(10, 20.5);
-  print(result2);
+  print(combine&lt;<span class="keyword">String</span>, <span class="keyword">int</span>&gt;(<span class="string">"Umur"</span>, 20));
+  print(combine&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt;(100, 99.5));
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 6 - Mode Futuristik')">📸 Tampilkan VS Code 6</button>
+            <button class="btn-screenshot" onclick="showScreenshot(6)">📸 Tampilkan VS Code 6</button>
         </div>
 
-        <!-- SLIDE 9: Extends -->
+        <!-- ==================== SLIDE 7 ==================== -->
         <div class="card">
-            <h3>🛡️ 7. Generic Dengan Extends</h3>
-            <p><strong>Penjelasan:</strong> <code>&lt;T extends num&gt;</code> membatasi tipe data hanya turunan dari num.</p>
+            <h3>🛡️ 7. Generic dengan Extends (Batas Tipe)</h3>
+            <p><code>&lt;T extends num&gt;</code> → hanya menerima int, double, num.</p>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">NumberBox</span>&lt;T extends num&gt; {
@@ -543,76 +361,62 @@ T myFunc&lt;T&gt;(T value) => value;
   NumberBox(<span class="keyword">this</span>.value);
   T getValue() => value;
 }
-
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> intBox = NumberBox&lt;<span class="keyword">int</span>&gt;(10);
-  print(<span class="string">"Int: ${intBox.getValue()}"</span>);
-  
-  <span class="keyword">var</span> doubleBox = NumberBox&lt;<span class="keyword">double</span>&gt;(3.14);
-  print(<span class="string">"Double: ${doubleBox.getValue()}"</span>);
-}</code></pre>
+<span class="comment">// NumberBox<String>('test'); // ERROR!</span></code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 7 - Mode Futuristik')">📸 Tampilkan VS Code 7</button>
+            <button class="btn-screenshot" onclick="showScreenshot(7)">📸 Tampilkan VS Code 7</button>
         </div>
 
-        <!-- SLIDE 10: Type Inference -->
+        <!-- ==================== SLIDE 8 ==================== -->
         <div class="card">
-            <h3>🎯 8. Type Inference</h3>
+            <h3>🎯 8. Type Inference (Inferensi Tipe)</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code>T myFunc&lt;T&gt;(T value) => value;
-
 <span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> intValue = myFunc(10);
-  print(intValue.runtimeType);
-  
-  <span class="keyword">var</span> stringValue = myFunc(<span class="string">"test"</span>);
-  print(stringValue.runtimeType);
+  <span class="keyword">var</span> a = myFunc(10);     <span class="comment">// Dart inferensi sebagai int</span>
+  <span class="keyword">var</span> b = myFunc(<span class="string">"test"</span>); <span class="comment">// Dart inferensi sebagai String</span>
+  print(a.runtimeType);   <span class="comment">// int</span>
+  print(b.runtimeType);   <span class="comment">// String</span>
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 8 - Mode Futuristik')">📸 Tampilkan VS Code 8</button>
+            <button class="btn-screenshot" onclick="showScreenshot(8)">📸 Tampilkan VS Code 8</button>
         </div>
 
-        <!-- SLIDE 11: Pembatasan Tipe -->
+        <!-- ==================== SLIDE 9 ==================== -->
         <div class="card">
-            <h3>🔒 9. Pembatasan Tipe pada Interface</h3>
+            <h3>🔒 9. Pembatasan Tipe (Interface Iterable)</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="keyword">void</span> printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T iterable) {
-  <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> iterable) print(item);
+                <pre><code><span class="keyword">void</span> printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T items) {
+  <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> items) print(item);
 }
-
 <span class="keyword">void</span> <span class="class">main</span>() {
   printIterable&lt;List&lt;<span class="keyword">int</span>&gt;&gt;([1, 2, 3]);
-  printIterable&lt;Set&lt;<span class="keyword">String</span>&gt;&gt;({<span class="string">'apple'</span>, <span class="string">'banana'</span>});
+  <span class="comment">// printIterable<int>(10); // ERROR!</span>
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 9 - Mode Futuristik')">📸 Tampilkan VS Code 9</button>
+            <button class="btn-screenshot" onclick="showScreenshot(9)">📸 Tampilkan VS Code 9</button>
         </div>
 
-        <!-- SLIDE 12: Abstract Class -->
+        <!-- ==================== SLIDE 10 ==================== -->
         <div class="card">
-            <h3>🐾 10. Pembatasan Tipe dengan Abstract Class</h3>
+            <h3>🐪 10. Pembatasan dengan Abstract Class</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="class">Animal</span> { <span class="keyword">void</span> makeSound(); }
-
-<span class="keyword">class</span> <span class="class">Dog</span> <span class="keyword">implements</span> Animal {
-  <span class="keyword">void</span> makeSound() => print(<span class="string">"Woof!"</span>);
-}
-
+<span class="keyword">class</span> <span class="class">Dog</span> <span class="keyword">implements</span> Animal { <span class="keyword">void</span> makeSound() => print(<span class="string">"Woof!"</span>); }
 <span class="keyword">class</span> <span class="class">AnimalCage</span>&lt;T extends Animal&gt; {
   T animal;
   AnimalCage(<span class="keyword">this</span>.animal);
   <span class="keyword">void</span> sound() => animal.makeSound();
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 10 - Mode Futuristik')">📸 Tampilkan VS Code 10</button>
+            <button class="btn-screenshot" onclick="showScreenshot(10)">📸 Tampilkan VS Code 10</button>
         </div>
 
-        <!-- SLIDE 13: Praktik -->
+        <!-- ==================== SLIDE 11 ==================== -->
         <div class="card">
-            <h3>💼 11. Praktik Generic Class & Fungsi</h3>
+            <h3>💼 11. Praktik: Repository, Swap, Triple</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">Repository</span>&lt;T&gt; {
@@ -620,60 +424,29 @@ T myFunc&lt;T&gt;(T value) => value;
   <span class="keyword">void</span> save(T item) => _items.add(item);
   List&lt;T&gt; getAll() => _items;
 }
-
 <span class="keyword">void</span> swap&lt;T&gt;(List&lt;T&gt; list, <span class="keyword">int</span> i, <span class="keyword">int</span> j) {
   T temp = list[i]; list[i] = list[j]; list[j] = temp;
 }
-
-<span class="keyword">class</span> <span class="class">Triple</span>&lt;A, B, C&gt; {
-  A first; B second; C third;
-  Triple(<span class="keyword">this</span>.first, <span class="keyword">this</span>.second, <span class="keyword">this</span>.third);
-}</code></pre>
+<span class="keyword">class</span> <span class="class">Triple</span>&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 11 - Mode Futuristik')">📸 Tampilkan VS Code 11</button>
+            <button class="btn-screenshot" onclick="showScreenshot(11)">📸 Tampilkan VS Code 11</button>
         </div>
 
-        <!-- SLIDE 14: Perbandingan -->
+        <!-- ==================== SLIDE 12 ==================== -->
         <div class="card">
-            <h3>⚖️ 12. Generic vs Dynamic vs Object</h3>
-            <table class="table-comparison">
-                <tr>
-                    <th>Aspect</th>
-                    <th>Generic&lt;T&gt;</th>
-                    <th>dynamic</th>
-                    <th>Object</th>
-                </tr>
-                <tr>
-                    <td>Type Safety</td>
-                    <td class="check">✅ Compile-time</td>
-                    <td class="cross">❌ Runtime</td>
-                    <td class="check">✅ Compile-time</td>
-                </tr>
-                <tr>
-                    <td>Performance</td>
-                    <td class="check">✅ Optimal</td>
-                    <td class="cross">❌ Overhead</td>
-                    <td class="check">✅ Optimal</td>
-                </tr>
-                <tr>
-                    <td>Casting</td>
-                    <td>Tidak perlu</td>
-                    <td>Tidak perlu</td>
-                    <td>Perlu casting</td>
-                </tr>
+            <h3>⚖️ 12. Perbandingan Generic vs Dynamic vs Object</h3>
+            <table class="table-compare">
+                <tr><th>Aspect</th><th>Generic&lt;T&gt;</th><th>dynamic</th><th>Object</th></tr>
+                <tr><td>Type Safety</td><td class="check">✅ Compile-time</td><td class="cross">❌ Runtime</td><td class="check">✅ Compile-time</td></tr>
+                <tr><td>Performance</td><td class="check">✅ Optimal</td><td class="cross">❌ Overhead</td><td class="check">✅ Optimal</td></tr>
+                <tr><td>Casting</td><td>Tidak perlu</td><td>Tidak perlu</td><td>Perlu casting</td></tr>
             </table>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code>Box&lt;<span class="keyword">int</span>&gt; box1 = Box&lt;<span class="keyword">int</span>&gt;(42);  <span class="comment">// Generic: aman</span>
-<span class="keyword">dynamic</span> box2 = 42;                <span class="comment">// Dynamic: tidak aman</span>
-Object box3 = 42;                 <span class="comment">// Object: perlu casting</span></code></pre>
-            </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 12 - Mode Futuristik')">📸 Tampilkan VS Code 12</button>
+            <button class="btn-screenshot" onclick="showScreenshot(12)">📸 Tampilkan VS Code 12</button>
         </div>
 
-        <!-- SLIDE 15: Cache -->
+        <!-- ==================== SLIDE 13 ==================== -->
         <div class="card">
-            <h3>🗄️ 13. Studi Kasus - Cache Generic</h3>
+            <h3>🗄️ 13. Studi Kasus: Cache Generic</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">Cache</span>&lt;T&gt; {
@@ -681,20 +454,18 @@ Object box3 = 42;                 <span class="comment">// Object: perlu casting
   <span class="keyword">void</span> set(String key, T value) => _storage[key] = value;
   T? get(String key) => _storage[key];
 }
-
 <span class="keyword">class</span> <span class="class">Product</span> { String name; <span class="keyword">int</span> price; }
-
 <span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> cache = Cache&lt;String&gt;();
-  cache.set(<span class="string">'name'</span>, <span class="string">'Alice'</span>);
+  <span class="keyword">var</span> cache = Cache&lt;Product&gt;();
+  cache.set(<span class="string">"p1"</span>, Product(<span class="string">"Laptop"</span>, 1000));
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 13 - Mode Futuristik')">📸 Tampilkan VS Code 13</button>
+            <button class="btn-screenshot" onclick="showScreenshot(13)">📸 Tampilkan VS Code 13</button>
         </div>
 
-        <!-- SLIDE 16: Latihan -->
+        <!-- ==================== SLIDE 14 ==================== -->
         <div class="card">
-            <h3>📝 14. Latihan</h3>
+            <h3>📝 14. Latihan: Stack, MergeLists, Response</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code><span class="keyword">class</span> <span class="class">Stack</span>&lt;T&gt; {
@@ -703,34 +474,32 @@ Object box3 = 42;                 <span class="comment">// Object: perlu casting
   T pop() => _items.removeLast();
   T peek() => _items.last;
 }
-
 List&lt;T&gt; mergeLists&lt;T&gt;(List&lt;T&gt; a, List&lt;T&gt; b) => [...a, ...b];
-
 <span class="keyword">class</span> <span class="class">Response</span>&lt;T&gt; {
   T? data; String? error;
   Response.success(<span class="keyword">this</span>.data) : error = <span class="keyword">null</span>;
   Response.error(<span class="keyword">this</span>.error) : data = <span class="keyword">null</span>;
 }</code></pre>
             </div>
-            <button class="button" onclick="alert('🚀 Screenshot VS Code 14 - Mode Futuristik')">📸 Tampilkan VS Code 14</button>
+            <button class="btn-screenshot" onclick="showScreenshot(14)">📸 Tampilkan VS Code 14</button>
         </div>
 
-        <!-- Ringkasan -->
+        <!-- RINGKASAN -->
         <div class="summary-box">
             <h3>✨ Ringkasan Manfaat Generic</h3>
             <ul>
                 <li><strong>Type Safety</strong> - Error terdeteksi saat compile-time</li>
-                <li><strong>Code Reusability</strong> - Satu class untuk berbagai tipe</li>
+                <li><strong>Code Reusability</strong> - Satu class untuk berbagai tipe data</li>
                 <li><strong>No Casting</strong> - Tidak perlu konversi tipe manual</li>
                 <li><strong>Performance</strong> - Lebih optimal dari dynamic</li>
                 <li><strong>Constraints</strong> - Bisa batasi tipe dengan extends</li>
             </ul>
         </div>
 
-        <!-- Kesimpulan -->
+        <!-- KESIMPULAN -->
         <div class="card">
-            <h3>📌 Kesimpulan Futuristik</h3>
-            <ul class="benefits">
+            <h3>📌 Kesimpulan</h3>
+            <ul>
                 <li>✅ Generic membuat kode TYPE-SAFE dan REUSABLE</li>
                 <li>✅ Bisa digunakan di class, fungsi, dan collections</li>
                 <li>✅ Type inference memudahkan penggunaan</li>
@@ -738,23 +507,60 @@ List&lt;T&gt; mergeLists&lt;T&gt;(List&lt;T&gt; a, List&lt;T&gt; b) => [...a, ..
             </ul>
         </div>
 
-        <!-- Footer -->
+        <!-- FOOTER -->
         <div class="footer">
-            <p>🚀 Demikian pembahasan mengenai konsep Generic dalam bahasa Dart.</p>
-            <p>💫 Semoga bermanfaat! 🙏</p>
+            <p>🚀 Demikian pembahasan konsep Generic dalam bahasa Dart.</p>
+            <p>💫 Usman Yakin Trio Sinada | 251410006 | SI.2A</p>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Screenshot">
+            <br>
+            <button class="close-modal" onclick="closeModal()">✖ Tutup</button>
         </div>
     </div>
 
     <script>
-        function copyCode(button) {
-            const pre = button.parentElement.querySelector('pre');
+        // Fungsi Copy Code
+        function copyCode(btn) {
+            const pre = btn.parentElement.querySelector('pre');
             const code = pre.innerText;
             navigator.clipboard.writeText(code).then(() => {
-                button.textContent = 'Copied! ✓';
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                }, 2000);
+                btn.textContent = 'Copied! ✓';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
             });
+        }
+
+        // Data screenshot (ganti dengan Base64 gambar asli Anda)
+        function getScreenshotImage(num) {
+            // Placeholder dengan tampilan keren
+            const images = {
+                1: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%230a0f1a'/%3E%3Ctext x='400' y='200' fill='%2300ffcc' font-size='28' text-anchor='middle' font-family='monospace'%3E📸 VS Code - Slide 1%3C/text%3E%3Ctext x='400' y='250' fill='%23ff66cc' font-size='18' text-anchor='middle'%3ETanpa Generic%3C/text%3E%3Ctext x='400' y='300' fill='%236a9955' font-size='14' text-anchor='middle'%3EGanti dengan screenshot asli Anda%3C/text%3E%3C/svg%3E`,
+                2: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%230a0f1a'/%3E%3Ctext x='400' y='200' fill='%2300ffcc' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 2%3C/text%3E%3Ctext x='400' y='250' fill='%23ff66cc' font-size='18' text-anchor='middle'%3EDengan Generic%3C/text%3E%3C/svg%3E`,
+            };
+            return images[num] || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%230a0f1a'/%3E%3Ctext x='400' y='200' fill='%2300ffcc' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide ${num}%3C/text%3E%3Ctext x='400' y='250' fill='%23ff66cc' font-size='18' text-anchor='middle'%3ESlide ${num}%3C/text%3E%3C/svg%3E`;
+        }
+
+        // Tampilkan modal
+        function showScreenshot(num) {
+            const modal = document.getElementById('modal');
+            const img = document.getElementById('modalImg');
+            img.src = getScreenshotImage(num);
+            modal.style.display = 'flex';
+        }
+
+        // Tutup modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Tutup modal jika klik luar
+        window.onclick = function(e) {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) closeModal();
         }
     </script>
 </body>
