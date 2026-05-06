@@ -298,16 +298,14 @@ Tampilkan VS Code 1
   print(<span class="string">"Nilai string: ${stringBox.data}"</span>);
   <span class="comment">// intBox.data = "Hello"; // ❌ ERROR compile-time!</span>
 }</code></pre>
-            </div>
-            
-            <h4>💻 Output:</h4>
-            <div class="output">
-                <div class="output-title">Output Program:</div>
-                <pre>Nilai int: 42
-Nilai string: Hello</pre>
-            </div>
-            <p><strong>✅ Keuntungan:</strong> Type safety di COMPILE-TIME!</p>
-        </div>
+             </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 2
+</button>
+
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
 
         <!-- SLIDE 5: Sintaks Generic -->
         <div class="card">
@@ -339,9 +337,15 @@ T myFunc&lt;T&gt;(T value) => value;
   pair.printPair();
 }</code></pre>
             </div>
-        </div>
+       </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 3
+</button>
 
-        <!-- SLIDE 6: Kelas Box -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+        <!-- SLIDE 4: Kelas Box -->
         <div class="card">
             <h3>📦 4. Kelas Box&lt;T&gt;</h3>
             <div class="code-block">
@@ -365,9 +369,16 @@ T myFunc&lt;T&gt;(T value) => value;
   print(<span class="string">"Set String: ${stringBox.value}"</span>);
 }</code></pre>
             </div>
-        </div>
+       </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 1
+</button>
 
-        <!-- SLIDE 7: Multiple Type -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 5: Multiple Type -->
         <div class="card">
             <h3>🔑 5. Multiple Type Parameters</h3>
             <div class="code-block">
@@ -390,9 +401,16 @@ T myFunc&lt;T&gt;(T value) => value;
   pair3.printPair();
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 5
+</button>
 
-        <!-- SLIDE 8: Combine -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 6: Combine -->
         <div class="card">
             <h3>🔗 6. Menggabungkan Dua Tipe Data Berbeda</h3>
             <div class="code-block">
@@ -409,9 +427,16 @@ T myFunc&lt;T&gt;(T value) => value;
   print(result2);
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 6
+</button>
 
-        <!-- SLIDE 9: Extends -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 7: Extends -->
         <div class="card">
             <h3>🛡️ 7. Generic Dengan Extends</h3>
             <p><strong>Penjelasan:</strong> <code>&lt;T extends num&gt;</code> membatasi tipe data hanya turunan dari num (int, double).</p>
@@ -433,9 +458,16 @@ T myFunc&lt;T&gt;(T value) => value;
   <span class="comment">// var stringBox = NumberBox<String>("test"); // ❌ Error!</span>
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 7
+</button>
 
-        <!-- SLIDE 10: Type Inference -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 8: Type Inference -->
         <div class="card">
             <h3>🎯 8. Type Inference (Inferensi Tipe)</h3>
             <div class="code-block">
@@ -450,9 +482,16 @@ T myFunc&lt;T&gt;(T value) => value;
   print(stringValue.runtimeType); <span class="comment">// Output: String</span>
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 8
+</button>
 
-        <!-- SLIDE 11: Pembatasan Tipe dengan Interface -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 9: Pembatasan Tipe dengan Interface -->
         <div class="card">
             <h3>🔒 9. Pembatasan Tipe pada Interface dan Class</h3>
             <div class="code-block">
@@ -469,9 +508,15 @@ T myFunc&lt;T&gt;(T value) => value;
   <span class="comment">// printIterable<int>(10); // ❌ Error!</span>
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 9
+</button>
 
-        <!-- SLIDE 12: Abstract Class -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+        <!-- SLIDE 10: Abstract Class -->
         <div class="card">
             <h3>🐾 10. Pembatasan Tipe dengan Abstract Class</h3>
             <div class="code-block">
@@ -499,9 +544,15 @@ T myFunc&lt;T&gt;(T value) => value;
   AnimalCage&lt;Cat&gt;(Cat()).sound();
 }</code></pre>
             </div>
-        </div>
+         </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 10
+</button>
 
-        <!-- SLIDE 13: Praktik 1 -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+        <!-- SLIDE 11: Praktik 1 -->
         <div class="card">
             <h3>💼 11. Praktik Generic Class & Fungsi</h3>
             <div class="code-block">
@@ -527,9 +578,16 @@ T myFunc&lt;T&gt;(T value) => value;
   Triple(<span class="keyword">this</span>.first, <span class="keyword">this</span>.second, <span class="keyword">this</span>.third);
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 11
+</button>
 
-        <!-- SLIDE 14: Perbandingan Generic vs Dynamic vs Object -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 12: Perbandingan Generic vs Dynamic vs Object -->
         <div class="card">
             <h3>⚖️ 12. Generic vs Dynamic vs Object</h3>
             <table class="table-comparison">
@@ -575,9 +633,16 @@ Box&lt;<span class="keyword">int</span>&gt; box1 = Box&lt;<span class="keyword">
 <span class="comment">// Object: perlu casting</span>
 Object box3 = 42;</code></pre>
             </div>
-        </div>
+          </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 12
+</button>
 
-        <!-- SLIDE 15: Studi Kasus Cache -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 13: Studi Kasus Cache -->
         <div class="card">
             <h3>🗄️ 13. Studi Kasus - Cache Generic</h3>
             <div class="code-block">
@@ -606,9 +671,16 @@ Object box3 = 42;</code></pre>
   productCache.set(<span class="string">'p1'</span>, Product(<span class="string">'Laptop'</span>, 1000));
 }</code></pre>
             </div>
-        </div>
+           </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 13
+</button>
 
-        <!-- SLIDE 16: Latihan & Ringkasan -->
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
+
+        <!-- SLIDE 14: Latihan & Ringkasan -->
         <div class="card">
             <h3>📝 14. Latihan</h3>
             <div class="code-block">
@@ -632,7 +704,14 @@ List&lt;T&gt; mergeLists&lt;T&gt;(List&lt;T&gt; a, List&lt;T&gt; b) => [...a, ..
   Response.error(<span class="keyword">this</span>.error) : data = <span class="keyword">null</span>;
 }</code></pre>
             </div>
-        </div>
+          </div>
+</div>
+<button class="button" onclick="showContent('img1')">
+Tampilkan VS Code 14
+</button>
+
+<img id="img1" src="vscode1.png" style="display:none;">
+</div>
 
         <!-- Ringkasan Manfaat -->
         <div class="summary-box">
