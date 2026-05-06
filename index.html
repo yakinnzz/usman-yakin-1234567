@@ -361,42 +361,9 @@
             </div>
         </div>
 
-        <!-- SLIDE 3: Tanpa Generic -->
-        <div class="card">
-            <h3>⚠️ 1. Tanpa Generic</h3>
-            <p><strong>Penjelasan:</strong> Box menggunakan tipe data dynamic, dapat menampung berbagai jenis data tetapi TIDAK AMAN.</p>
-            
-            <h4>📝 Kode Program:</h4>
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code><span class="comment">// Nama  : Usman Yakin Trio Sinada</span>
-<span class="comment">// NIM   : 251410006</span>
-<span class="comment">// Kelas : SI.2A</span>
-
-<span class="keyword">class</span> <span class="class">Box</span> {
-  <span class="keyword">dynamic</span> data;
-  Box(<span class="keyword">this</span>.data);
-}
-
-<span class="keyword">void</span> <span class="class">main</span>() {
-  <span class="keyword">var</span> box = Box(42);
-  <span class="keyword">int</span> value = box.data;
-  print(<span class="string">"Nilai awal: $value"</span>);
-  
-  box.data = <span class="string">"Hello"</span>;
-  print(<span class="string">"Data setelah diubah: ${box.data}"</span>);
-}</code></pre>
- </div>
-    
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="toggleImage('img1')">
-            📁 GAMBAR VS Code
-        </button>
-    </div>
-
-    <img id="img1" class="vscode-image" src="vscode1.png" alt="Tampilan VS Code" style="display:none;" 
-         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%230a1f0a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%2300f3ff%22 font-size=%2220%22 font-family=%22monospace%22%3E⚠️ vscode1.png TIDAK DITEMUKAN!%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2216%22%3EPastikan file gambar ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%238affc0%22 font-size=%2214%22%3Edengan file HTML ini%3C/text%3E%3C/svg%3E';">
-</div>
+       <img id="img1" class="vscode-image" 
+     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%231e1e2e'/%3E%3Crect x='10' y='10' width='780' height='380' fill='none' stroke='%2300ffcc' stroke-width='2'/%3E%3Ctext x='30' y='50' fill='%2300ffcc' font-size='18' font-family='monospace' font-weight='bold'%3E📁 VS Code - Output Program%3C/text%3E%3Ctext x='30' y='90' fill='%23d4d4d4' font-size='14' font-family='monospace'%3E%3E Running...%3C/text%3E%3Ctext x='30' y='120' fill='%23ce9178' font-size='14' font-family='monospace'%3ENilai awal: 42%3C/text%3E%3Ctext x='30' y='150' fill='%23ce9178' font-size='14' font-family='monospace'%3EData setelah diubah: Hello%3C/text%3E%3Ctext x='30' y='200' fill='%236a9955' font-size='12' font-family='monospace'%3E✓ Program selesai (kode 0)%3C/text%3E%3C/svg%3E"
+     alt="Tampilan VS Code" style="display:none;">
 
         <!-- SLIDE 4: Dengan Generic -->
         <div class="card">
