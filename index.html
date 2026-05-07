@@ -632,10 +632,18 @@ void main() {
   print("Nilai int: ${intBox.data}");
   print("Nilai string: ${stringBox.data}");
 }</code></pre>
-   </div>
+      </div>
+    
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img1')">
+            📸 TAMPILKAN SCREENSHOT
+        </button>
+    </div>
 
-    <img id="img2" class="vscode-image" src="vscode2.png" alt="SREENSHOOT CODE" style="display:none;" 
-         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%236b0f0f%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffd700%22 font-size=%2220%22 font-family=%22monospace%22%3E🧧 vscode2.png TIDAK DITEMUKAN! 🧧%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc66%22 font-size=%2216%22%3EPastikan file gambar ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc66%22 font-size=%2214%22%3Edengan file HTML ini%3C/text%3E%3C/svg%3E';">
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img2" class="vscode-image" src="vscode2.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode2.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 3 ==================== -->
@@ -655,14 +663,20 @@ class Pair&lt;K, V&gt; {
   Pair(this.key, this.value);
   void printPair() => print("Key: $key, Value: $value");
 }</code></pre>
-    </div>
+     </div>
+    
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img3').style.display='block'">
-            🍁 Tampilkan  3
+        <button class="btn btn-primary" onclick="toggleImage('img3')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img3" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🍁 VS Code - Slide 3%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ESintaks Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img3')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img3" class="vscode-image" src="vscode3.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode3.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
+
 
 <!-- ==================== SLIDE 4 ==================== -->
 <div class="section">
@@ -692,13 +706,16 @@ class Pair&lt;K, V&gt; {
   Pair(this.key, this.value);
   void printPair() => print("Key: $key, Value: $value");
 }</code></pre>
-    </div>
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img5').style.display='block'">
-            🍃 Tampilkan  5
+        <button class="btn btn-primary" onclick="toggleImage('img5')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img5" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🍃 VS Code - Slide 5%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EMultiple Type%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img5')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img5" class="vscode-image" src="vscode5.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode5.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 6 ==================== -->
@@ -711,15 +728,17 @@ void main() {
   print(combine&lt;String, int&gt;("Number is", 10));
   print(combine&lt;int, double&gt;(10, 20.5));
 }</code></pre>
-    </div>
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img6').style.display='block'">
-            🌅 Tampilkan  6
+        <button class="btn btn-primary" onclick="toggleImage('img6')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img6" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌅 VS Code - Slide 6%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ECombine%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img6')">
-</div>
 
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img6" class="vscode-image" src="vscode6.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode6.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
+</div>
 <!-- ==================== SLIDE 7 ==================== -->
 <div class="section">
     <h2>7. Generic Dengan Extends</h2>
@@ -730,13 +749,16 @@ void main() {
   NumberBox(this.value);
   T getValue() => value;
 }</code></pre>
-    </div>
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img7').style.display='block'">
-            🌄 Tampilkan  7
+        <button class="btn btn-primary" onclick="toggleImage('img7')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img7" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌄 VS Code - Slide 7%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EExtends%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img7')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img7" class="vscode-image" src="vscode7.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode7.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 8 ==================== -->
@@ -751,13 +773,16 @@ void main() {
   print(a.runtimeType);
   print(b.runtimeType);
 }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img8').style.display='block'">
-            🎑 Tampilkan  8
+     <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img8')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img8" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🎑 VS Code - Slide 8%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EType Inference%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img8')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img8" class="vscode-image" src="vscode8.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode8.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 9 ==================== -->
@@ -767,13 +792,16 @@ void main() {
         <pre><code>void printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T items) {
   for (var item in items) print(item);
 }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img9').style.display='block'">
-            🏞️ Tampilkan  9
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img9')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img9" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🏞️ VS Code - Slide 9%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EIterable%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img9')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img9" class="vscode-image" src="vscode9.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode9.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 10 ==================== -->
@@ -787,13 +815,16 @@ class AnimalCage&lt;T extends Animal&gt; {
   AnimalCage(this.animal);
   void sound() => animal.makeSound();
 }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img10').style.display='block'">
-            🌲 Tampilkan  10
+       <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img10')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img10" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌲 VS Code - Slide 10%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EAbstract Class%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img10')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img10" class="vscode-image" src="vscode10.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode10.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 11 ==================== -->
@@ -811,13 +842,16 @@ void swap&lt;T&gt;(List&lt;T&gt; list, int i, int j) {
 }
 
 class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img11').style.display='block'">
-            🌳 Tampilkan  11
+       <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img11')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img11" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌳 VS Code - Slide 11%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EPraktik Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img11')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img11" class="vscode-image" src="vscode11.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode11.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 12 ==================== -->
@@ -829,14 +863,17 @@ class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
         <tr><td>Performance</td><td class="check">✅ Optimal</td><td class="cross">❌ Overhead</td><td class="check">✅ Optimal</td></tr>
         <tr><td>Casting</td><td>Tidak perlu</td><td>Tidak perlu</td><td>Perlu casting</td></tr>
     </table>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img12').style.display='block'">
-            📊 Tampilkan 12
+         <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img12')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img12" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E📊 VS Code - Slide 12%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EPerbandingan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img12')">
-</div>
 
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img12" class="vscode-image" src="vscode12.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode12.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
+</div>
 <!-- ==================== SLIDE 13 ==================== -->
 <div class="section">
     <h2>13. Cache Generic</h2>
@@ -846,13 +883,16 @@ class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
   void set(String key, T value) => _storage[key] = value;
   T? get(String key) => _storage[key];
 }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img13').style.display='block'">
-            🗄️ Tampilkan  13
+         <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img13')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img13" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🗄️ VS Code - Slide 13%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ECache Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img13')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img13" class="vscode-image" src="vscode13.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode13.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 14 ==================== -->
@@ -872,13 +912,16 @@ class Response&lt;T&gt; { T? data; String? error;
   Response.success(this.data) : error = null;
   Response.error(this.error) : data = null;
 }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img14').style.display='block'">
-            📝 Tampilkan 14
+       <div class="btn-group">
+        <button class="btn btn-primary" onclick="toggleImage('img14')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img14" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E📝 VS Code - Slide 14%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ELatihan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img14')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img14" class="vscode-image" src="vscode14.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode14.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 15 ==================== -->
@@ -891,14 +934,7 @@ class Response&lt;T&gt; { T? data; String? error;
   List&lt;T&gt; getAll() => _data;
   void remove(T item) => _data.remove(item);
 }</code></pre>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img15').style.display='block'">
-            🏆 Tampilkan  15
-        </button>
-    </div>
-    <img id="img15" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🏆 VS Code - Slide 15%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EChallenge%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img15')">
-</div>
+
 
 <!-- RINGKASAN -->
 <div class="summary-box">
@@ -919,3 +955,5 @@ class Response&lt;T&gt; { T? data; String? error;
     <p style="margin-top: 15px;">Kekurangan dalam penyusunan tugas ini merupakan ruang untuk perbaikan. Semoga bermanfaat untuk pembelajaran Dart.</p>
     <p style="margin-top: 20px; color: #ffb87a;">🌅 ~ Usman Yakin Trio Sinada | 251410006 | SI.2A ~ 🍂</p>
 </div>
+
+        
