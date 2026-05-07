@@ -13,62 +13,59 @@
 }
 
 /* GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Source+Code Pro:wght@400;600&display=swap');
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #03050b;
-    color: #00f3ff;
+    font-family: 'Poppins', sans-serif;
+    background: #1a0f0a;
+    color: #f5e6c8;
     min-height: 100vh;
     position: relative;
 }
 
-/* BACKGROUND - CYBERPUNK GRID */
-.cyber-bg {
+/* BACKGROUND - SENJA & PEPOHONAN */
+.forest-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -2;
-    background: radial-gradient(circle at 20% 30%, #0a0a2a, #020108);
+    background: linear-gradient(180deg, #ff7e5e 0%, #feb47b 30%, #d4a373 60%, #5c3a21 100%);
 }
 
-.cyber-bg::before {
+.forest-bg::before {
     content: "";
     position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 255, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
+    height: 30%;
+    background: repeating-linear-gradient(90deg, 
+        rgba(44, 24, 16, 0.6) 0px, 
+        rgba(44, 24, 16, 0.6) 2px,
+        transparent 2px,
+        transparent 30px);
     pointer-events: none;
 }
 
-.cyber-bg::after {
-    content: "";
+/* Siluet pohon */
+.forest-bg::after {
+    content: "🌲🌳🌴🌲🌳🌴🌲🌳🌴🌲🌳🌴";
     position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(255,0,255,0.05) 0%, rgba(0,0,0,0) 70%);
+    font-size: 80px;
+    color: rgba(30, 20, 15, 0.4);
+    white-space: nowrap;
+    overflow: hidden;
     pointer-events: none;
+    letter-spacing: 20px;
 }
 
-/* GLOWING TEXT ANIMATION */
-.glitch-text {
-    animation: glitch 3s infinite;
-}
-
-@keyframes glitch {
-    0%, 100% { text-shadow: 0 0 5px #00f3ff, 0 0 10px #ff00de; }
-    95% { text-shadow: 0 0 2px #00f3ff; }
-    96% { text-shadow: -2px 0 #ff00de, 2px 0 #00f3ff; }
-    97% { text-shadow: 2px 0 #ff00de, -2px 0 #00f3ff; }
-}
-
-/* FALLING CODE ANIMATION */
-.falling-codes {
+/* Daun jatuh animation */
+.falling-leaves {
     position: fixed;
     top: 0;
     left: 0;
@@ -76,21 +73,19 @@ body {
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.25;
+    opacity: 0.6;
 }
 
-.falling-codes span {
+.falling-leaves span {
     position: absolute;
-    color: #ff00de;
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    animation: fall linear infinite;
-    filter: drop-shadow(0 0 3px #00f3ff);
+    font-size: 20px;
+    animation: leafFall linear infinite;
+    filter: drop-shadow(0 0 3px rgba(255,126,94,0.5));
 }
 
-@keyframes fall {
-    from { transform: translateY(-100vh); opacity: 1; }
-    to { transform: translateY(100vh); opacity: 0; }
+@keyframes leafFall {
+    from { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
 }
 
 .container {
@@ -103,52 +98,44 @@ body {
 
 /* ========== HEADER ========== */
 .header {
-    background: rgba(5, 7, 20, 0.85);
+    background: rgba(60, 40, 25, 0.85);
     backdrop-filter: blur(12px);
     border-radius: 32px;
     padding: 50px 30px;
     text-align: center;
     margin-bottom: 30px;
-    border: 2px solid #00f3ff;
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3), inset 0 0 20px rgba(255, 0, 222, 0.1);
+    border: 2px solid #f5c6a0;
+    box-shadow: 0 0 30px rgba(245, 198, 160, 0.3), inset 0 0 20px rgba(255,126,94,0.1);
     position: relative;
     overflow: hidden;
 }
 
 .header::before {
-    content: "";
+    content: "🍂🍁🌿";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, #00f3ff, #ff00de, transparent);
-    opacity: 0.1;
-    animation: rotate 8s linear infinite;
+    bottom: 0;
+    right: 0;
+    font-size: 60px;
+    opacity: 0.15;
     pointer-events: none;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 .header h1 {
     font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, #00f3ff, #ff00de, #00f3ff);
+    font-weight: 700;
+    background: linear-gradient(135deg, #f5c6a0, #ff8c5a, #d4a373);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     letter-spacing: -0.5px;
     margin: 5px 0;
-    filter: drop-shadow(0 0 15px rgba(0,243,255,0.5));
+    text-shadow: 0 0 15px rgba(245,198,160,0.3);
 }
 
 .header .amp {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, #ff00de, #00f3ff);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff8c5a, #f5c6a0);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -157,10 +144,10 @@ body {
 .header-divider {
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg, transparent, #00f3ff, #ff00de, transparent);
+    background: linear-gradient(90deg, transparent, #f5c6a0, #ff8c5a, transparent);
     margin: 25px auto;
     border-radius: 3px;
-    box-shadow: 0 0 10px #00f3ff;
+    box-shadow: 0 0 10px #f5c6a0;
 }
 
 .identity {
@@ -170,15 +157,15 @@ body {
 .identity p {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #ff00de;
-    text-shadow: 0 0 10px rgba(255, 0, 222, 0.5);
+    color: #f5c6a0;
+    text-shadow: 0 0 10px rgba(245, 198, 160, 0.5);
     margin: 5px 0;
 }
 
 .identity p:first-child {
     font-size: 1.4rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #00f3ff, #ff00de);
+    background: linear-gradient(135deg, #f5c6a0, #ff8c5a);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -186,12 +173,12 @@ body {
 
 /* ========== SECTION CARD ========== */
 .section {
-    background: rgba(5, 7, 20, 0.75);
+    background: rgba(50, 35, 25, 0.85);
     backdrop-filter: blur(8px);
     border-radius: 24px;
     padding: 30px;
     margin-bottom: 25px;
-    border: 1px solid rgba(0, 243, 255, 0.4);
+    border: 1px solid rgba(245, 198, 160, 0.4);
     transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     position: relative;
     overflow: hidden;
@@ -204,7 +191,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, #00f3ff, #ff00de);
+    background: linear-gradient(90deg, #f5c6a0, #ff8c5a);
     transform: scaleX(0);
     transition: transform 0.5s ease;
     transform-origin: left;
@@ -216,15 +203,15 @@ body {
 
 .section:hover {
     transform: translateY(-5px);
-    border-color: #ff00de;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(0, 243, 255, 0.2);
-    background: rgba(5, 7, 20, 0.9);
+    border-color: #ff8c5a;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(245, 198, 160, 0.15);
+    background: rgba(70, 50, 35, 0.9);
 }
 
 .section h2 {
     font-size: 1.8rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #00f3ff, #ff00de);
+    background: linear-gradient(135deg, #f5c6a0, #ff8c5a);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -233,26 +220,26 @@ body {
 }
 
 .section h2::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 3px;
-    background: linear-gradient(90deg, #00f3ff, #ff00de);
-    margin-top: 10px;
-    border-radius: 3px;
-    box-shadow: 0 0 8px #00f3ff;
+    content: "🍂";
+    display: inline-block;
+    margin-left: 12px;
+    font-size: 1.5rem;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #f5c6a0;
 }
 
 .section h3 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #ff00de;
+    color: #ffb87a;
     margin: 20px 0 12px 0;
-    text-shadow: 0 0 5px #ff00de;
+    text-shadow: 0 0 5px rgba(255,184,122,0.3);
 }
 
 .section p {
-    color: #b8f2ff;
+    color: #eeddcc;
     line-height: 1.7;
     margin-bottom: 15px;
     font-weight: 400;
@@ -264,20 +251,20 @@ body {
 }
 
 .section li {
-    color: #a0f5ff;
+    color: #e8d5c0;
     margin-bottom: 10px;
     line-height: 1.6;
 }
 
 /* ========== CODE BOX ========== */
 .code-box {
-    background: #010105;
+    background: #2a1f18;
     border-radius: 16px;
     padding: 20px;
     margin: 20px 0;
-    border: 1px solid #00f3ff;
+    border: 1px solid #f5c6a0;
     overflow-x: auto;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 0 15px rgba(0,243,255,0.1);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.3), 0 0 15px rgba(245,198,160,0.1);
 }
 
 .code-box pre {
@@ -287,9 +274,9 @@ body {
 }
 
 .code-box code {
-    font-family: 'Space Mono', 'Courier New', monospace;
+    font-family: 'Source Code Pro', 'Courier New', monospace;
     font-size: 13px;
-    color: #ff9ff3;
+    color: #ffc8a0;
     line-height: 1.6;
 }
 
@@ -304,7 +291,7 @@ body {
 .btn {
     padding: 10px 28px;
     border-radius: 40px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
@@ -316,16 +303,16 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    background: linear-gradient(135deg, #d4a373, #b5835a);
     color: #fff;
-    box-shadow: 0 0 10px #00b4d8;
+    box-shadow: 0 0 10px #d4a373;
 }
 
 .btn-primary:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px #00f3ff, 0 4px 20px rgba(0, 180, 216, 0.5);
-    background: linear-gradient(135deg, #00f3ff, #00b4d8);
-    color: #000;
+    box-shadow: 0 0 20px #f5c6a0, 0 4px 20px rgba(212, 163, 115, 0.5);
+    background: linear-gradient(135deg, #f5c6a0, #d4a373);
+    color: #2a1f18;
 }
 
 /* ========== GAMBAR ========== */
@@ -334,16 +321,16 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 16px;
-    border: 2px solid #00f3ff;
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+    border: 2px solid #f5c6a0;
+    box-shadow: 0 0 20px rgba(245, 198, 160, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .vscode-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 35px rgba(255, 0, 222, 0.6);
-    border-color: #ff00de;
+    box-shadow: 0 0 35px rgba(255, 140, 90, 0.5);
+    border-color: #ff8c5a;
 }
 
 /* ========== MODAL ========== */
@@ -352,7 +339,7 @@ body {
     position: fixed;
     z-index: 1000;
     inset: 0;
-    background: rgba(0, 0, 0, 0.98);
+    background: rgba(26, 15, 10, 0.98);
     backdrop-filter: blur(12px);
     cursor: pointer;
 }
@@ -370,8 +357,8 @@ body {
     max-width: 100%;
     max-height: 90vh;
     border-radius: 20px;
-    border: 3px solid #00f3ff;
-    box-shadow: 0 0 60px rgba(0, 243, 255, 0.5);
+    border: 3px solid #f5c6a0;
+    box-shadow: 0 0 60px rgba(245, 198, 160, 0.4);
 }
 
 .close-modal {
@@ -379,7 +366,7 @@ body {
     right: 35px;
     top: 25px;
     font-size: 45px;
-    color: #00f3ff;
+    color: #f5c6a0;
     cursor: pointer;
     transition: 0.3s;
     z-index: 1001;
@@ -387,8 +374,8 @@ body {
 
 .close-modal:hover {
     transform: scale(1.2);
-    color: #ff00de;
-    text-shadow: 0 0 15px #00f3ff;
+    color: #ff8c5a;
+    text-shadow: 0 0 15px #f5c6a0;
 }
 
 /* ========== TABLE ========== */
@@ -396,45 +383,45 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2);
     border-radius: 16px;
     overflow: hidden;
 }
 
 .table-compare th, .table-compare td {
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    border: 1px solid rgba(245, 198, 160, 0.4);
     padding: 12px;
     text-align: center;
 }
 
 .table-compare th {
-    background: rgba(0, 255, 255, 0.15);
-    color: #00f3ff;
+    background: rgba(212, 163, 115, 0.2);
+    color: #f5c6a0;
 }
 
-.check { color: #00ff88; font-weight: bold; }
-.cross { color: #ff4466; font-weight: bold; }
+.check { color: #8fbc6e; font-weight: bold; }
+.cross { color: #d97a5c; font-weight: bold; }
 
 /* ========== SUMMARY BOX ========== */
 .summary-box {
-    background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 222, 0.1));
+    background: linear-gradient(135deg, rgba(212, 163, 115, 0.15), rgba(255, 140, 90, 0.1));
     border-radius: 24px;
     padding: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1px solid #ff00de;
+    border: 1px solid #f5c6a0;
     backdrop-filter: blur(4px);
 }
 
 .summary-box p {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #00f3ff;
+    color: #f5c6a0;
     margin-bottom: 15px;
 }
 
 .summary-box li {
-    color: #ffb3f0;
+    color: #ffd4b8;
 }
 
 /* ========== FOOTER ========== */
@@ -442,8 +429,8 @@ body {
     text-align: center;
     padding: 30px;
     margin-top: 40px;
-    border-top: 1px solid rgba(0, 243, 255, 0.3);
-    color: #6a6aff;
+    border-top: 1px solid rgba(245, 198, 160, 0.3);
+    color: #c9a87c;
     font-size: 0.9rem;
 }
 
@@ -457,13 +444,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #010105;
+    background: #2a1f18;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #00b4d8, #ff00de);
+    background: linear-gradient(135deg, #d4a373, #ff8c5a);
     border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #f5c6a0, #d4a373);
 }
 
 /* ========== RESPONSIVE ========== */
@@ -488,21 +479,21 @@ body {
 </style>
 
 <script>
-// FALLING CODE ANIMATION
-function createFallingCodes() {
-    const container = document.querySelector('.falling-codes');
+// FALLING LEAVES ANIMATION
+function createFallingLeaves() {
+    const container = document.querySelector('.falling-leaves');
     if (!container) return;
     
-    const chars = ['0', '1', 'class', 'void', 'main', 'extends', 'T', 'E', 'K', 'V', '=>', '{}', '()', '[]', 'Generic', 'Dart'];
+    const leaves = ['🍂', '🍁', '🌿', '🍃', '🌾', '🍂'];
     
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 40; i++) {
         const span = document.createElement('span');
-        span.textContent = chars[Math.floor(Math.random() * chars.length)];
+        span.textContent = leaves[Math.floor(Math.random() * leaves.length)];
         span.style.left = Math.random() * 100 + '%';
-        span.style.animationDuration = Math.random() * 8 + 4 + 's';
-        span.style.animationDelay = Math.random() * 10 + 's';
-        span.style.opacity = Math.random() * 0.4 + 0.1;
-        span.style.fontSize = Math.random() * 16 + 8 + 'px';
+        span.style.animationDuration = Math.random() * 6 + 3 + 's';
+        span.style.animationDelay = Math.random() * 8 + 's';
+        span.style.opacity = Math.random() * 0.5 + 0.2;
+        span.style.fontSize = Math.random() * 20 + 14 + 'px';
         container.appendChild(span);
     }
 }
@@ -524,7 +515,7 @@ function closeModal() {
 
 // INITIALIZATION
 document.addEventListener("DOMContentLoaded", function() {
-    createFallingCodes();
+    createFallingLeaves();
     
     const images = document.querySelectorAll('.vscode-image');
     images.forEach(img => {
@@ -542,18 +533,18 @@ window.onclick = function(e) {
 
 <body>
 
-<div class="cyber-bg"></div>
-<div class="falling-codes"></div>
+<div class="forest-bg"></div>
+<div class="falling-leaves"></div>
 
 <div class="container">
 
-<!-- HEADER - MILIK USMAN YAKIN -->
+<!-- HEADER -->
 <div class="header">
-    <h1 class="glitch-text">Konsep Generic</h1>
-    <h1 class="glitch-text">& OOP pada Dart</h1>
+    <h1>🍂 Konsep Generic</h1>
+    <h1>& OOP pada Dart 🌾</h1>
     <div class="header-divider"></div>
     <div class="identity">
-        <p>👨‍🚀 USMAN YAKIN TRIO SINADA</p>
+        <p>🌅 USMAN YAKIN TRIO SINADA</p>
         <p>📡 251410006</p>
         <p>🎓 SI.2A</p>
     </div>
@@ -566,8 +557,8 @@ window.onclick = function(e) {
         <li>Pada struktur ini, sebuah kontainer atau variabel didefinisikan secara umum untuk menangani berbagai macam objek sekaligus.</li>
         <li>Mekanisme: Variabel tersebut tidak dikunci pada satu tipe data spesifik, sehingga sebuah objek angka bisa dengan mudah digantikan oleh objek teks dalam alur yang sama.</li>
         <li>Risiko: Karena sistem tidak memverifikasi kesesuaian tipe data saat kode ditulis, beban pemeriksaan berpindah sepenuhnya ke saat program dijalankan.</li>
-        <li>Dampak: Hal ini sering memicu munculnya exception atau kegagalan sistem secara mendadak jika data yang diproses tidak sesuai dengan ekspektasi logika program.</li>
-        <li>Singkatnya, tanpa Generic, kode menjadi sangat dinamis namun rentan terhadap kesalahan tersembunyi yang sulit dideteksi sebelum aplikasi benar-benar digunakan.</li>
+        <li>Dampak: Hal ini sering memicu munculnya exception atau kegagalan sistem secara mendadak.</li>
+        <li>Singkatnya, tanpa Generic, kode menjadi sangat dinamis namun rentan terhadap kesalahan tersembunyi.</li>
     </ul>
     <h3>📝 Kode Program VS Code:</h3>
     <div class="code-box">
@@ -575,9 +566,6 @@ window.onclick = function(e) {
 // NIM   : 251410006
 // Kelas : SI.2A
 
-// =====================
-// TANPA GENERIC
-// =====================
 class Box {
   dynamic data;
   Box(this.data);
@@ -593,11 +581,11 @@ void main() {
 }</code></pre>
     </div>
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('vscode1').style.display='block'">
-            📸 screenshot 1
+        <button class="btn btn-primary" onclick="document.getElementById('img1').style.display='block'">
+            🍂 Tampilkan VS Code 1
         </button>
     </div>
-    <img id="vscode1" class="vscode1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle' font-family='monospace'%3E📸 VS Code - Slide 1%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ETanpa Generic%3C/text%3E%3Ctext x='400' y='300' fill='%2366ffcc' font-size='14' text-anchor='middle'%3EUsman Yakin Trio Sinada | 251410006 | SI.2A%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('vscode1')">
+    <img id="img1" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle' font-family='monospace'%3E🍂 VS Code - Slide 1%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ETanpa Generic%3C/text%3E%3Ctext x='400' y='300' fill='%23c9a87c' font-size='14' text-anchor='middle'%3EUsman Yakin Trio Sinada | 251410006 | SI.2A%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img1')">
 </div>
 
 <!-- ==================== SLIDE 2 ==================== -->
@@ -607,18 +595,11 @@ void main() {
         <li>Dalam skema ini, kontainer didefinisikan menggunakan parameter tipe formal yang bertindak sebagai cetak biru yang presisi.</li>
         <li>Mekanisme: Saat objek dibuat, kita menentukan tipe data spesifik yang akan dikunci ke dalam wadah tersebut.</li>
         <li>Keamanan: Sistem melakukan verifikasi ketat pada saat penulisan kode (compile-time).</li>
-        <li>Dampak: Penggunaan ini menghilangkan kebutuhan untuk melakukan konversi tipe data secara manual dan drastis mengurangi risiko terjadinya runtime error.</li>
+        <li>Dampak: Menghilangkan kebutuhan konversi tipe data manual dan mengurangi risiko runtime error.</li>
     </ul>
     <h3>📝 Kode Program VS Code:</h3>
     <div class="code-box">
-        <pre><code>// Nama  : Usman Yakin Trio Sinada
-// NIM   : 251410006
-// Kelas : SI.2A
-
-// =====================
-// DENGAN GENERIC
-// =====================
-class Box&lt;T&gt; {
+        <pre><code>class Box&lt;T&gt; {
   T data;
   Box(this.data);
 }
@@ -629,15 +610,14 @@ void main() {
   
   print("Nilai int: ${intBox.data}");
   print("Nilai string: ${stringBox.data}");
-  // intBox.data = "Hello"; // ❌ ERROR compile-time!
 }</code></pre>
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img2').style.display='block'">
-            📸 Tampilkan VS Code 2
+            🌾 Tampilkan VS Code 2
         </button>
     </div>
-    <img id="img2" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 2%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EDengan Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img2')">
+    <img id="img2" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌾 VS Code - Slide 2%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EDengan Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img2')">
 </div>
 
 <!-- ==================== SLIDE 3 ==================== -->
@@ -660,15 +640,15 @@ class Pair&lt;K, V&gt; {
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img3').style.display='block'">
-            📸 Tampilkan VS Code 3
+            🍁 Tampilkan VS Code 3
         </button>
     </div>
-    <img id="img3" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 3%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ESintaks Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img3')">
+    <img id="img3" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🍁 VS Code - Slide 3%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ESintaks Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img3')">
 </div>
 
 <!-- ==================== SLIDE 4 ==================== -->
 <div class="section">
-    <h2>4. Kelas Box&lt;T&gt; dengan Getter/Setter</h2>
+    <h2>4. Kelas Box&lt;T&gt;</h2>
     <div class="code-box">
         <pre><code>class Box&lt;T&gt; {
   T? _value;
@@ -679,10 +659,10 @@ class Pair&lt;K, V&gt; {
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img4').style.display='block'">
-            📸 Tampilkan VS Code 4
+            🌿 Tampilkan VS Code 4
         </button>
     </div>
-    <img id="img4" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 4%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EKelas Box%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img4')">
+    <img id="img4" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌿 VS Code - Slide 4%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EKelas Box%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img4')">
 </div>
 
 <!-- ==================== SLIDE 5 ==================== -->
@@ -693,24 +673,19 @@ class Pair&lt;K, V&gt; {
   K key; V value;
   Pair(this.key, this.value);
   void printPair() => print("Key: $key, Value: $value");
-}
-
-void main() {
-  var pair = Pair&lt;String, int&gt;("umur", 20);
-  pair.printPair();
 }</code></pre>
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img5').style.display='block'">
-            📸 Tampilkan VS Code 5
+            🍃 Tampilkan VS Code 5
         </button>
     </div>
-    <img id="img5" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 5%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EMultiple Type Parameters%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img5')">
+    <img id="img5" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🍃 VS Code - Slide 5%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EMultiple Type%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img5')">
 </div>
 
 <!-- ==================== SLIDE 6 ==================== -->
 <div class="section">
-    <h2>6. Menggabungkan Dua Tipe Data Berbeda</h2>
+    <h2>6. Menggabungkan Dua Tipe Data</h2>
     <div class="code-box">
         <pre><code>String combine&lt;T, U&gt;(T value1, U value2) => '$value1, $value2';
 
@@ -721,10 +696,10 @@ void main() {
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img6').style.display='block'">
-            📸 Tampilkan VS Code 6
+            🌅 Tampilkan VS Code 6
         </button>
     </div>
-    <img id="img6" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 6%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EFungsi Combine%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img6')">
+    <img id="img6" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌅 VS Code - Slide 6%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ECombine%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img6')">
 </div>
 
 <!-- ==================== SLIDE 7 ==================== -->
@@ -736,20 +711,19 @@ void main() {
   T value;
   NumberBox(this.value);
   T getValue() => value;
-}
-// NumberBox&lt;String&gt;("test"); // ERROR!</code></pre>
+}</code></pre>
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img7').style.display='block'">
-            📸 Tampilkan VS Code 7
+            🌄 Tampilkan VS Code 7
         </button>
     </div>
-    <img id="img7" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 7%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EExtends%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img7')">
+    <img id="img7" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌄 VS Code - Slide 7%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EExtends%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img7')">
 </div>
 
 <!-- ==================== SLIDE 8 ==================== -->
 <div class="section">
-    <h2>8. Type Inference (Inferensi Tipe)</h2>
+    <h2>8. Type Inference</h2>
     <div class="code-box">
         <pre><code>T myFunc&lt;T&gt;(T value) => value;
 
@@ -762,36 +736,31 @@ void main() {
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img8').style.display='block'">
-            📸 Tampilkan VS Code 8
+            🎑 Tampilkan VS Code 8
         </button>
     </div>
-    <img id="img8" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 8%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EType Inference%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img8')">
+    <img id="img8" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🎑 VS Code - Slide 8%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EType Inference%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img8')">
 </div>
 
 <!-- ==================== SLIDE 9 ==================== -->
 <div class="section">
-    <h2>9. Pembatasan Tipe pada Interface (Iterable)</h2>
+    <h2>9. Pembatasan Tipe pada Interface</h2>
     <div class="code-box">
         <pre><code>void printIterable&lt;T extends Iterable&lt;dynamic&gt;&gt;(T items) {
   for (var item in items) print(item);
-}
-
-void main() {
-  printIterable&lt;List&lt;int&gt;&gt;([1, 2, 3]);
-  // printIterable&lt;int&gt;(10); // ERROR!
 }</code></pre>
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img9').style.display='block'">
-            📸 Tampilkan VS Code 9
+            🏞️ Tampilkan VS Code 9
         </button>
     </div>
-    <img id="img9" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 9%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EIterable Constraint%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img9')">
+    <img id="img9" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🏞️ VS Code - Slide 9%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EIterable%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img9')">
 </div>
 
 <!-- ==================== SLIDE 10 ==================== -->
 <div class="section">
-    <h2>10. Pembatasan Tipe dengan Abstract Class</h2>
+    <h2>10. Abstract Class Constraint</h2>
     <div class="code-box">
         <pre><code>abstract class Animal { void makeSound(); }
 class Dog implements Animal { void makeSound() => print("Woof!"); }
@@ -803,10 +772,10 @@ class AnimalCage&lt;T extends Animal&gt; {
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img10').style.display='block'">
-            📸 Tampilkan VS Code 10
+            🌲 Tampilkan VS Code 10
         </button>
     </div>
-    <img id="img10" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 10%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EAbstract Class%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img10')">
+    <img id="img10" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌲 VS Code - Slide 10%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EAbstract Class%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img10')">
 </div>
 
 <!-- ==================== SLIDE 11 ==================== -->
@@ -827,10 +796,10 @@ class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img11').style.display='block'">
-            📸 Tampilkan VS Code 11
+            🌳 Tampilkan VS Code 11
         </button>
     </div>
-    <img id="img11" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 11%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EPraktik Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img11')">
+    <img id="img11" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌳 VS Code - Slide 11%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EPraktik Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img11')">
 </div>
 
 <!-- ==================== SLIDE 12 ==================== -->
@@ -844,15 +813,15 @@ class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
     </table>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img12').style.display='block'">
-            📸 Tampilkan VS Code 12
+            📊 Tampilkan VS Code 12
         </button>
     </div>
-    <img id="img12" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 12%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EPerbandingan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img12')">
+    <img id="img12" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E📊 VS Code - Slide 12%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EPerbandingan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img12')">
 </div>
 
 <!-- ==================== SLIDE 13 ==================== -->
 <div class="section">
-    <h2>13. Studi Kasus - Cache Generic</h2>
+    <h2>13. Cache Generic</h2>
     <div class="code-box">
         <pre><code>class Cache&lt;T&gt; {
   final Map&lt;String, T&gt; _storage = {};
@@ -862,15 +831,15 @@ class Triple&lt;A, B, C&gt; { A first; B second; C third; }</code></pre>
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img13').style.display='block'">
-            📸 Tampilkan VS Code 13
+            🗄️ Tampilkan VS Code 13
         </button>
     </div>
-    <img id="img13" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 13%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ECache Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img13')">
+    <img id="img13" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🗄️ VS Code - Slide 13%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ECache Generic%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img13')">
 </div>
 
 <!-- ==================== SLIDE 14 ==================== -->
 <div class="section">
-    <h2>14. Latihan: Stack, MergeLists, Response</h2>
+    <h2>14. Latihan</h2>
     <div class="code-box">
         <pre><code>class Stack&lt;T&gt; {
   final List&lt;T&gt; _items = [];
@@ -888,15 +857,15 @@ class Response&lt;T&gt; { T? data; String? error;
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img14').style.display='block'">
-            📸 Tampilkan VS Code 14
+            📝 Tampilkan VS Code 14
         </button>
     </div>
-    <img id="img14" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 14%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3ELatihan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img14')">
+    <img id="img14" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E📝 VS Code - Slide 14%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3ELatihan%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img14')">
 </div>
 
 <!-- ==================== SLIDE 15 ==================== -->
 <div class="section">
-    <h2>15. Challenge - Generic Repository</h2>
+    <h2>15. Challenge</h2>
     <div class="code-box">
         <pre><code>class Repository&lt;T&gt; {
   final List&lt;T&gt; _data = [];
@@ -907,15 +876,15 @@ class Response&lt;T&gt; { T? data; String? error;
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="document.getElementById('img15').style.display='block'">
-            📸 Tampilkan VS Code 15
+            🏆 Tampilkan VS Code 15
         </button>
     </div>
-    <img id="img15" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a2e'/%3E%3Ctext x='400' y='200' fill='%2300f3ff' font-size='28' text-anchor='middle'%3E📸 VS Code - Slide 15%3C/text%3E%3Ctext x='400' y='250' fill='%23ff00de' font-size='20' text-anchor='middle'%3EChallenge%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img15')">
+    <img id="img15" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🏆 VS Code - Slide 15%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EChallenge%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img15')">
 </div>
 
 <!-- RINGKASAN -->
 <div class="summary-box">
-    <p>✨ KESIMPULAN</p>
+    <p>🍂 KESIMPULAN</p>
     <ul>
         <li><strong>Universalitas Kode:</strong> Generic memungkinkan kelas dan fungsi beroperasi secara dinamis namun tetap terkontrol.</li>
         <li><strong>Keamanan Tanpa Kompromi:</strong> Bounded generic (extends) membatasi cakupan tipe data.</li>
@@ -929,14 +898,14 @@ class Response&lt;T&gt; { T? data; String? error;
 <div class="section">
     <h2>📌 PENUTUP</h2>
     <p>Demikian pemaparan mengenai konsep Generic dan Object-Oriented Programming (OOP) dalam bahasa Dart.</p>
-    <p style="margin-top: 15px;">Kekurangan dalam penyusunan tugas ini merupakan ruang untuk perbaikan. Semoga bermanfaat untuk pembelajaran Dart, khususnya pada konsep Generic dan OOP.</p>
-    <p style="margin-top: 20px; color: #ff00de;">~ Usman Yakin Trio Sinada | 251410006 | SI.2A ~</p>
+    <p style="margin-top: 15px;">Kekurangan dalam penyusunan tugas ini merupakan ruang untuk perbaikan. Semoga bermanfaat untuk pembelajaran Dart.</p>
+    <p style="margin-top: 20px; color: #ffb87a;">🌅 ~ Usman Yakin Trio Sinada | 251410006 | SI.2A ~ 🍂</p>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
     <p>© 2025 | Tugas Generic Dart | UIN Suska Riau</p>
-    <p>🚀 Cyberpunk Theme | Konsep Generic & OOP pada Dart</p>
+    <p>🍂🌾🌿 Tema Pepohonan Senja | Konsep Generic & OOP pada Dart 🌅🌲🍃</p>
 </div>
 
 </div>
