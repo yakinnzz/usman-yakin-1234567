@@ -635,7 +635,7 @@ void main() {
       </div>
     
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="toggleImage('img1')">
+        <button class="btn btn-primary" onclick="toggleImage('img2')">
             📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
@@ -663,7 +663,7 @@ class Pair&lt;K, V&gt; {
   Pair(this.key, this.value);
   void printPair() => print("Key: $key, Value: $value");
 }</code></pre>
-     </div>
+    </div>
     
     <div class="btn-group">
         <button class="btn btn-primary" onclick="toggleImage('img3')">
@@ -689,12 +689,17 @@ class Pair&lt;K, V&gt; {
   void setValue(T value) => _value = value;
 }</code></pre>
     </div>
+    
     <div class="btn-group">
-        <button class="btn btn-primary" onclick="document.getElementById('img4').style.display='block'">
-            🌿 Tampilkan  4
+        <button class="btn btn-primary" onclick="toggleImage('img4')">
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
-    <img id="img4" class="vscode-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232a1f18'/%3E%3Ctext x='400' y='200' fill='%23f5c6a0' font-size='28' text-anchor='middle'%3E🌿 VS Code - Slide 4%3C/text%3E%3Ctext x='400' y='260' fill='%23ff8c5a' font-size='20' text-anchor='middle'%3EKelas Box%3C/text%3E%3C/svg%3E" style="display:none;" onclick="openModal('img4')">
+
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img4" class="vscode-image" src="vscode4.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode4.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
 
 <!-- ==================== SLIDE 5 ==================== -->
@@ -912,7 +917,9 @@ class Response&lt;T&gt; { T? data; String? error;
   Response.success(this.data) : error = null;
   Response.error(this.error) : data = null;
 }</code></pre>
-       <div class="btn-group">
+      </div>
+    
+    <div class="btn-group">
         <button class="btn btn-primary" onclick="toggleImage('img14')">
             📸 TAMPILKAN SCREENSHOT
         </button>
