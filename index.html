@@ -498,6 +498,22 @@ function createFallingLeaves() {
     }
 }
 
+// ========== FUNGSI UNTUK GAMBAR (DIPERBAIKI) ==========
+function toggleImage(imgId) {
+    const img = document.getElementById(imgId);
+    if (img) {
+        if (img.style.display === 'none' || img.style.display === '') {
+            img.style.display = 'block';
+            // Scroll ke gambar agar terlihat
+            setTimeout(() => {
+                img.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        } else {
+            img.style.display = 'none';
+        }
+    }
+}
+
 // MODAL FUNCTIONS
 function openModal(imgId) {
     const img = document.getElementById(imgId);
@@ -579,18 +595,19 @@ void main() {
   box.data = "Hello";
   print("Data setelah diubah: ${box.data}");
 }</code></pre>
- </div>
+    </div>
     
     <div class="btn-group">
         <button class="btn btn-primary" onclick="toggleImage('img1')">
-           SREENSHOOT CODE
+            📸 TAMPILKAN SCREENSHOT
         </button>
     </div>
 
-    <img id="img1" class="vscode-image" src="vscode1.png" alt="SREENSHOOT CODE" style="display:none;" 
-         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%236b0f0f%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffd700%22 font-size=%2220%22 font-family=%22monospace%22%3E🧧 vscode1.png TIDAK DITEMUKAN! 🧧%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc66%22 font-size=%2216%22%3EPastikan file gambar ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc66%22 font-size=%2214%22%3Edengan file HTML ini%3C/text%3E%3C/svg%3E';">
+    <!-- GAMBAR: AWALNYA DISEMBUNYIKAN, AKAN MUNCUL SAAT TOMBOL DIKLIK -->
+    <img id="img1" class="vscode-image" src="vscode1.png" alt="Screenshot VS Code - Kode Tanpa Generic" 
+         style="display:none;"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%232d1a11%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 text-anchor=%22middle%22 fill=%22%23ffb347%22 font-size=%2224%22 font-family=%22monospace%22%3E⚠️ FILE vscode1.png TIDAK DITEMUKAN ⚠️%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2218%22%3EPastikan file screenshot ada di folder yang sama%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 text-anchor=%22middle%22 fill=%22%23ffcc88%22 font-size=%2216%22%3Edengan file HTML ini%3C/text%3E%3Ctext x=%2250%25%22 y=%2285%25%22 text-anchor=%22middle%22 fill=%22%23ddaa66%22 font-size=%2214%22%3EBuka Developer Tools (F12) → Console untuk detail error%3C/text%3E%3C/svg%3E';">
 </div>
-
 
 <!-- ==================== SLIDE 2 ==================== -->
 <div class="section">
